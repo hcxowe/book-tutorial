@@ -1,11 +1,13 @@
-// 对象的创建方式
+// ### 构造器模式   Constructor Model
+
+// ##### 对象的创建方式
 
 // a b c 都是空对象， 但是a、b对象都有一个Object作为原型，c原型位null
 var a = {},
     b = new Object(),
     c = Object.create(null);
 
-// 设置对象属性方式
+// #### 设置对象属性方式
 a.name = 'hcxowe';
 a[age] = 28;
 Object.defineProperty(a, 'work', {
@@ -38,3 +40,40 @@ for (var item in a) {
 }
 // name age
 
+// #### 通过Object.create 原型继承
+var pubObj = {name: 'pub', getName: function(){console.log(this.name);}};
+var subObj = Object.create(pubObj);
+subObj.time = new Date();
+
+subObj.getName(); // pub
+subObj.time; // Sun Dec 18 2016 08:46:39 GMT+0800 (中国标准时间)
+
+// ### 基本构造器
+function Person(name, age, work) {
+    this.name = name;
+    this.age  = age;
+    this.work = work;
+
+    this.getName = function() {
+        return this.name;
+    }
+}
+
+var man = new Person('hcx', 28, 'coder');
+man.getName(); // name
+
+// #### 带原型的构造器
+function Person(name, age, work) {
+    this.name = name;
+    this.age  = age;
+    this.work = work;
+}
+
+Person.prototype = {
+    getName: function(){
+        return this.name;
+    }
+};
+
+var man = new Person('hcx', 28, 'coder');
+man.getName(); // name
