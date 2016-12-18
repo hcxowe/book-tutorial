@@ -71,6 +71,5 @@ mediator.Subscribe('newMessage', function(data) {
     console.log(data);
 });
 
-// ### 如何理解中介者与观察者之间的区别？
+// ### 如何理解中介者模式与观察者模式之间的区别？
 // 观察者模式中，不存在封装约束的单一对象，Subject与Observer必须合作才能维持约束
-//
