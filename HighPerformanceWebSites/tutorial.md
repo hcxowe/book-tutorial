@@ -72,9 +72,8 @@
     ```javascript
     Vary: Accept-Encoding
     ```
-
     - 禁用代理
-    ```
+    ```javascript
     Cache-Control: Private
     ```
 
