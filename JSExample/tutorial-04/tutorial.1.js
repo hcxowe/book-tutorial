@@ -89,7 +89,7 @@ Function.prototype.binder = function(context) {
     else {
         return function() {
             args = args.concat(Array.prototype.slice.call(arguments));
-            this.apply(context, args);
+            fn.apply(context, args);
         }
     }
     
