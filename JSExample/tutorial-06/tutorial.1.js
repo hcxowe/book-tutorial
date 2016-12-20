@@ -12,28 +12,33 @@
 
 var ary = [];
 var i = 1000;
+
 function setAry(ary) {
-     while (i--) {
-         ary.push["**"];
-     }
-}
-function checkAry(ary){
-     for(var i=0,len=ary.length; i<len; i++){
-        ary[i] += '*';
-     }
-}
-function checkEach(ary){
-  ary.forEach(function(val,index){
-     ary[index] += '*';
-  });
+    while (i--) {
+        ary.push["**"];
+    }
 }
 
-function click1(){
+function checkAry(ary) {
+    for (var i = 0, len = ary.length; i < len; i++) {
+        ary[i] += '*';
+    }
+}
+
+function checkEach(ary) {
+    ary.forEach(function (val, index) {
+        ary[index] += '*';
+    });
+}
+
+function click1() {
     setAry(ary);
 }
-function click2(){
+
+function click2() {
     checkAry(ary);
 }
-function click3(){
+
+function click3() {
     checkEach(ary);
 }
