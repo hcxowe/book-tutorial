@@ -18,3 +18,5 @@
 ### learning JavaScript Design Patterns
 
 ### High Performance Web Sites
+
+### JavaScript: The Good Parts
