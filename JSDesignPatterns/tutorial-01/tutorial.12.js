@@ -1,47 +1,35 @@
-// ### Mixin 模式
-// 模式允许对象通过较低的复杂性借用或继承功能
+// ### Decorator 装饰者模式
 
-// 一个简单的Mixin模式
+function MacBook() {
+    this.cast = function() {
+        return 997;
+    };
+}
 
-var Car = function(settings) {
-    this.model = settings.model || 'no model';
-    this.color = settings.color || 'black';
-};
-
-var Mixin = function() {
-
-};
-
-Mixin.prototype = {
-    driveForward: function() {
-        console.log('drive forward');
-    },
-
-    driveBackward: function() {
-        console.log('drive backward');
-    }
-};
-
-function augment(rec, giv) {
-    if(arguments[2]) {
-        for(var i=2,len=arguments.length;i<len; i++){
-            rec.prototype[arguments[i]] = giv.prototype[arguments[i]];
-        }
-    }
-    else {
-        for(var method in giv.prototype) {
-            if(!Object.hasOwnProperty(rec, method)) {
-                rec.prototype[method] = giv.prototype[method];
-            }
-        }
+function Memory(mac) {
+    var v = mac.cast();
+    mac.cast = function() {
+        return v + 75;
     }
 }
 
-augment(Car, Mixin, 'driveForward', 'driveBackward');
+function Engraving(mac) {
+    var v = mac.cast();
+    mac.cast = function() {
+        return v + 75;
+    }
+}
 
-var myCar = new Car({
-    model: 'SUV',
-    color: 'white'
-});
+function Insurance(mac) {
+    var v = mac.cast();
+    mac.cast = function() {
+        return v + 75;
+    }
+}
 
-myCar.driveForward(); // drive forward
+var mb = new MacBook();
+Memory(mb);
+Engraving(mb);
+Insurance(mb);
+
+mb.cast(); // 1222
