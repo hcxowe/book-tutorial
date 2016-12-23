@@ -1,7 +1,7 @@
 // ### Mixin 模式
 // 模式允许对象通过较低的复杂性借用或继承功能
 
-// 一个简单的Mixin模式
+// 一个简单的Mixin模式 
 
 var Car = function(settings) {
     this.model = settings.model || 'no model';
@@ -40,7 +40,7 @@ function augment(rec, giv) {
 augment(Car, Mixin, 'driveForward', 'driveBackward');
 
 var myCar = new Car({
-    model: 'SUV',
+    model: 'SUV model',
     color: 'white'
 });
 
