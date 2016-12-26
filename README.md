@@ -22,3 +22,5 @@
 ### JavaScript: The Good Parts
 
 ### High Performance JavaScript
+
+### Data Structures & Algorithms with JavaScript
