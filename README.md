@@ -20,3 +20,5 @@
 ### High Performance Web Sites
 
 ### JavaScript: The Good Parts
+
+### High Performance JavaScript
