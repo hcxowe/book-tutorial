@@ -61,5 +61,5 @@ xhr.send(null);
 - 合并脚本减少脚本数量
 - 使用无阻赛下载JavaScript的方法
     - defer async
-    - 动态创建<script>下载并执行
+    - 动态创建\<script\>下载并执行
     - XHR下载脚本并脚本注入页面
