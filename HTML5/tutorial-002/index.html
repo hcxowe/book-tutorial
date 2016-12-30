@@ -1,0 +1,77 @@
+<!DOCTYPE HTML> <!-- 1.表明处理的是html文档 2.用来标记文档内容的HTML所属的版本 -->
+<!--根元素-->
+<html>
+    <!--head元素必须有一个title子元素, 包含元数据和文档信息-->
+    <head>
+        <!--文档标题：设置后任务栏与标签页将显示其中的内容-->
+        <title>The Definitive Guide to HTML5</title>
+        
+        <!--设置相对URL的基准, 如第一个a标签会新开一个标签卡,地址为：ip:port/gmvcsrtc/index2.html-->
+        <base href="./" target="_blank">
+
+        <!--meta用于声明字符编码-->
+        <meta charset="UTF-8">
+    
+        <!--meta用于定于文档的各种元数据-->
+        <!--页面的作者-->
+        <meta name="author" content="hcxowe">
+        <!--页面的描述-->
+        <meta name="description" content="a html5 sample">
+        <!--当前页面所属web应用系统的名称-->
+        <meta name="application name" content="html5">
+        <!--编写页面所使用的编辑器-->
+        <meta name="generator" content="vscode">
+        <!--页面的关键字-->
+        <meta name="keyword" content="html5,hcxowe">
+        <!--定义网页搜索引擎索引方式-->
+        <meta name="robots" content="noindex">
+
+        <!--meta用于模拟HTTP标头字段-->
+        <!--以秒为单位指定一个时间间隔，用于重新加载自身或者指定的url-->
+        <meta http-equiv="refresh" content="5">
+        <!--优先使用的样式表，content内容与link的title一致-->
+        <meta http-equiv="default-style" content="firstCSS">
+        <!--另一种声明html页面所用字符编码的方法-->
+        <meta http-equiv="content-type" content="text/html charset=UTF-8">
+
+        <!--link载入外部样式表-->
+        <link rel="stylesheet" hreflang="UTF-8" media="screen" type="text/css" href="style.css" title="firstCSS">
+        <!--link添加网页图标-->
+        <link rel="shortcut" href="favicon.ico" type="image/x-icon">
+        <!--link预先获取关联的资源-->
+        <link rel="prefetch" href="app_logo.png">
+
+        <!--定义文档内嵌样式 属性media指定样式特定用于什么情况下：all，handheld, projection, print, screen, tv，(max-width:500px)等-->
+        <style type="text/css" media="screen AND (max-width:500px)">
+            body {
+                background-color: red;
+            }
+        </style>
+
+        <script>
+            document.writeln('this is from the external script.');
+        </script>
+
+        <!--defer延迟到页面加载解析完成之后执行-->
+        <script src="tutorial.1.js" defer></script>
+        <!--async异步加载执行脚本，如果依赖其他脚本不宜使用此属性-->
+        <script src="tutorial.2.js" async></script>
+
+        <!--禁用js执行-->
+        <noscript>
+            <h1>Javascript is required!</h1>
+            <p>you cannot use this page without Javascript</p>
+            <!--当不支持js时，将页面定向到指定url-->
+            <meta http-equiv="refresh" content="5;http://www.baidu.com">
+        </noscript>
+
+    </head>
+
+    <!--body元素包含文档内容，一般外部脚本放在body闭合之前-->
+    <body>
+        
+        <a href="index2.html">index2.html</a>
+
+        
+    </body>
+</html>
