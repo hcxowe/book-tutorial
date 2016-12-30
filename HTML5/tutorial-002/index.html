@@ -28,7 +28,7 @@
 
         <!--meta用于模拟HTTP标头字段-->
         <!--以秒为单位指定一个时间间隔，用于重新加载自身或者指定的url-->
-        <meta http-equiv="refresh" content="5">
+        <meta http-equiv="refresh" content="3">
         <!--优先使用的样式表，content内容与link的title一致-->
         <meta http-equiv="default-style" content="firstCSS">
         <!--另一种声明html页面所用字符编码的方法-->
@@ -42,9 +42,10 @@
         <link rel="prefetch" href="app_logo.png">
 
         <!--定义文档内嵌样式 属性media指定样式特定用于什么情况下：all，handheld, projection, print, screen, tv，(max-width:500px)等-->
-        <style type="text/css" media="screen AND (max-width:500px)">
+        <style type="text/css" media="screen AND (min-width:500px)">
             body {
                 background-color: red;
+                color: white;
             }
         </style>
 
@@ -70,8 +71,87 @@
     <!--body元素包含文档内容，一般外部脚本放在body闭合之前-->
     <body>
         
-        <a href="index2.html">index2.html</a>
+        <!--a标签的target属性取值：_blank, _parent, _selt, _top, 指定的frame-->
+        <a href="index2.html" target="_blank">index2.html</a>
+        <br>
+        <b>b元素没有具体的语义实现加粗来标记一段文字，避免使用，可以使用css达到相同的效果，bolder</b>
+        <br>
+        <em>em元素表示对一段文字的强调，italic</em>
+        <br>
+        <i>i元素表示一段文字与周围文字内容有本质区别，常用在外文词语，科技术语或者某人的想法，italic</i>
+        <br>
+        <s>s元素标示一段文字不再正确或准确，line-through</s>
+        <br>
+        <strong>strong元素表示一段重要文字，bolder</strong>
+        <br>
+        <u>u元素让一段文字从周围内容中凸显出来，但是并没有具体的语义， underline</u>
+        <br>
+        <small>small元素表示小号字体，常用于免责声明和澄清声明， smaller</small>
+        <br>
+        <!--上标 下标 在一些数学表达式中需要用到-->
+        10<sup>2</sup> log<sub>e</sub>
 
-        
+        <p>
+            this is a very long word: <wbr> Super<wbr>califragilistic<wbr>expoalidocious. 
+            we can help the browser display long word whth the <code>wbr</code> element.<br>
+            <code>wbr</code>是html5中新增，用来表示长度超过<wbr>当前浏览器窗口的内容适合在此换行，<wbr>究竟换不换行有浏览器决定。<code>wbr</code>元素只不过是对恰当的换行位置的建议。针对英文单词，中文不起作用。
+        </p>
+        <br>
+
+        <!--标示计算机的输入与输出-->
+        <code>code element, font-family:monospace</code>
+        <br>
+        <var>var element, italic</var>
+        <br>
+        <samp>samp element, font-family:monospace</samp>
+        <br>
+        <kbd>kbd element, font-family:monospace</kbd>
+        <br>
+
+        <!--使用标题引用、引文、定义、缩写-->
+        <abbr title="这是完整的语句">缩写</abbr>
+        <br>
+        <dfn>术语</dfn>
+        <br>
+        <q cite="http://www.google.com">q元素表示引用他处的内容,内容前后将添加&quot;</q>
+        <br>
+        <cite>标示引用的作品标题</cite>
+        <br>
+
+        <!--使用语言元素-->
+        <ruby>魑<rp>(</rp><rt>chi</rt><rp>)</rp></ruby>
+        <ruby>魅<rp>(</rp><rt>mei</rt><rp>)</rp></ruby>
+        <ruby>魍<rp>(</rp><rt>wang</rt><rp>)</rp></ruby>
+        <ruby>魉<rp>(</rp><rt>liang</rt><rp>)</rp></ruby>
+
+        <br>
+
+        <bdo dir="ltr">
+            bdo元素用来明确指定文字的方向
+        </bdo>
+        <br>
+        <bdo dir="rtl">
+            bdo元素用来明确指定文字的方向
+        </bdo>
+        <br>
+
+        <bdi>bdi元素表示一段文字出于文字方向考虑而与其他内容隔离开来</bdi>
+
+        <br>
+
+        <span>span元素没有任何含义</span>
+
+        <br>
+
+        <mark>mark元素用来表示因为与某段上下文相关而被突出显示的一段文字</mark>
+
+        <br>
+
+        <ins>ins元素表示文档中添加的文字</ins>
+        <del>del元素表示文档中删除的文字</del>
+
+        <br>
+
+        <time datetime="2016-12-30">12-30</time>
     </body>
 </html>
