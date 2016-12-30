@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>组织内容</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta http-equiv="refresh" content="3" />-->
+    </head>
+    <body>
+        <p>p元素代表段落，包含着一个或多个相关句子，这些句子围绕的是一个观点或者论点</p>
+
+        <div>
+            div元素没有具体的含义，当找不到合适的其他语义化的元素时可以使用div来为内容建立结构，通过class或者id属性赋予起语义
+        </div>
+
+        <!--保持内容中的空格，阻止合并空白字符-->
+        <pre>
+            <code>
+                var ary = [1,2,3,4,5];
+                for (var i=0; len = ary.length; i < len; i++) {
+                    console.log(ary[i]);
+                }
+            </code>
+        </pre>
+
+        <blockquote cite="http://www.goldmsg.com">
+            blockquote元素表示引自他处的一边内容，该元素的用途与q元素一样，只是blockquote通常用在要引用内容较多的情况下。
+        </blockquote>
+
+        <!--hr元素代表段落级别的主题分隔-->
+        <hr>
+
+        <!--有序列表 type支持a A i I 1（默认） reversed降序-->
+        <ol type="I" reversed>
+            <li>王比军</li>
+            <li>林锦兴</li>
+            <li>张林峰</li>
+            <li>谢敏辉</li>
+            <li>张文龙</li>
+        </ol>
+
+        <!--无序列表-->
+        <ul>
+            <li>王比军</li>
+            <li>林锦兴</li>
+            <li>张林峰</li>
+            <li>谢敏辉</li>
+            <li>张文龙</li>
+        </ul>
+
+        <!--菜单，IE处理与无序列表处理一样， chrome：符号两边间距更大-->
+        <menu>
+            <li>王比军</li>
+            <li>林锦兴</li>
+            <li>张林峰</li>
+            <li>谢敏辉</li>
+            <li>张文龙</li>
+        </menu>
+
+        <!--定义说明列表-->
+        <dl>
+            <dt>Apple</dt>
+                <dd>The apple is the pomaceour fruit of the apple tree</dd>
+
+            <dt>Apple</dt>
+                <dd>The apple is the pomaceour fruit of the apple tree</dd>
+        </dl>
+        
+        <!--figure元素，插图：一个独立的内容单元，可带标题，通常作为一个整体呗文档引用，删除插图不会影响文档要表达的意思-->
+        <figure>
+            <figcaption>Listing to muisc</figcaption>
+            <code>
+                document.writeln('I like the fruits.');
+            </code>
+        </figure>
+    </body>
+</html>
