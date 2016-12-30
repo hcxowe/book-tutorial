@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!--元数据-->
+        <meta charset="UTF-8">
+        <title>The Definitive Guide to HTML5</title>
+
+        <style>
+            a {
+                background-color: blue !important;
+            }
+
+            p {
+                width: calc(100% - 100px);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--html实体-->
+        <p>&lt;script&gt; true &amp;&amp; false &euro; &pound; &sect; &copy; &reg; &trade; </p>
+        <p>&quot;1&nbsp;&nbsp;&nbsp;&nbsp;2&quot;</p>
+
+        <form>
+            <!--accesskey 在windows系统上结合alt触发快捷访问-->
+            Name: <input type="text" name="name" accesskey="n" />
+            <p></p>
+            Password: <input type="text" name="password" accesskey="p" />
+            <p></p>
+            <input type="submit" value="Log In" accesskey="s" />
+        </form>
+
+        <h1>高新兴</h1>
+        <!--contenteditable html5属性 用户可编辑内容-->
+        <p contenteditable="true" contextmenu="true" dir="rtl" draggable="true" dropzone="body">高新兴科技集团股份有限公司（原广东高新兴通信股份有限公司，以下简称“高新兴”或“高新兴科技集团”）成立于1997年，注册资金17784万，是国内监控领域领先的综合解决方案提供商及其软硬件产品制造商，已于2010年成功上市（股票代码300098）。 </p>
+
+        <a style="background-color: red;" href="http://www.baidu.com">百度一下</a>
+    </body>
+</html>
