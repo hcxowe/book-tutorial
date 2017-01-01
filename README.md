@@ -9,6 +9,8 @@
 
 ### JavaScript高级程序设计
 
+### JavaScript忍者秘籍
+
 ### JQuery代码片段
 
 ### Javascript设计模式
