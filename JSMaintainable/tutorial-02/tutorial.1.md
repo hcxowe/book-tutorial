@@ -136,8 +136,7 @@
         typeof在检测IE8-DOM的方法（如getElementById）的时候返回Object，这是因为IE实现DOM的机制导致的，检测DOM方法可以使用in来检测是否存在该方法
         eg. ```"querySelectorAll" in document; // true ```
         
-
-    -  检测数组：也是由于跨iframe时，instanceof检测不准，故使用如下通用方法
+    - 检测数组：也是由于跨iframe时，instanceof检测不准，故使用如下通用方法
         ```javascript
         function isArray(array) {
             if (typeof Array.isArray === 'function') {
