@@ -32,3 +32,5 @@
 ### High Performance JavaScript --- 高性能JavaScript
 
 ### Data Structures & Algorithms with JavaScript --- 数据结构与算法JavaScript描述
+
+### Effective JavaScript --- 编写高质量js的68个有效方法
