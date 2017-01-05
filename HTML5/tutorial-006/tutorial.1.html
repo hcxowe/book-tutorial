@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>表单</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form method="post" action="#" enctype="application/x-www-form-urlencoded" autocomplete="off" target="_blank">
+        <fieldset>
+            <legend>Enter your details</legend>
+            <p>
+                <label for="fave">fave:</label>
+                <input id="fave" type="text" name="fave" value="" autocomplete="on" autofocus />
+            </p>
+            <p>
+                <label for="name">name:</label>
+                <input id="name" type="text" name="name" disabled />
+            </p>    
+        </fieldset>
+
+        <fieldset disabled>
+            <legend>Vote for your three</legend>
+            <p>
+                <label for="fave1">fave:</label>
+                <input id="fave1" type="text" name="fave" value="" />
+            </p>
+            <p>
+                <label for="fave2">name:</label>
+                <input id="fave2" type="text" name="name" />
+            </p> 
+            <p>
+                <label for="fave3">name:</label>
+                <input id="fave3" type="text" name="name" />
+            </p>    
+        </fieldset>
+
+        <fieldset>
+            <input type="text" list="list" maxlength="8" placeholder="please enter something" required size="5" value="" />
+            <input type="text" readonly>
+            <input type="text" disabled>
+        </fieldset>
+
+        <fieldset>
+            <label for="">password:<input type="password" ></label>
+            <label for="">button:<input type="button" value="按钮" /></label>
+            <label for="">number:<input type="number" min="10" max="100" step="10" value="50" /></label>
+            <label for="">range:<input type="range" min="10" max="100" step="10" value="50" /></label>
+            <label for="checkbox">checkbox:<input id="checkbox" type="checkbox" checked value="xxx" /></label>
+            <label for="radio1">radio:<input id="radio1" type="radio" value="xxx" name="fave" /></label>
+            <label for="radio1"><input id="radio2" type="radio" value="xxx" name="fave" /></label>
+            <label for="radio1"><input id="radio3" type="radio" value="xxx" name="fave" /></label>
+            <label for="telphone">telphone:<input id="telphone" type="tel" /></label>
+            <label for="email">email:<input id="email" type="email" /></label>
+            <label for="url">url:<input id="url" type="url" /></label>
+            <label for="date">date:<input id="date" type="date" /></label>
+            <label for="color">color:<input id="color" type="color" /></label>
+            <label for="search">search:<input id="search" type="search" /></label>
+            <label for="hidden">hidden:<input id="hidden" type="hidden" /></label>
+            <label for="file">file:<input id="file" type="file" /></label>
+        </fieldset>
+
+        <datalist id="list">
+            <option value="apples" label="lovely"></option>
+            <option value="putao">葡萄的事</option>
+            <option value="bannal" ></option>
+        </datalist>
+
+        <button type="submit" formaction="#" formmethod="get" formenctype="text/plain" formtarget="_self">Submit Vote</button>
+        <button type="reset">Reset Vote</button>
+        <button type="button">Normal</button>
+    </form>
+</body>
+
+</html>
