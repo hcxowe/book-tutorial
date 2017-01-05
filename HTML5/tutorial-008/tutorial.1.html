@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /*通用选择器*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /*标签选择器*/
+        body {
+            background-color: grey;
+        }
+
+        /*类选择器*/
+        .webpack {
+            color: white;
+        }
+        p.webpack {
+            color: blue;
+            border: 1px solid green;
+        }
+
+        /*ID选择器*/
+        #title {
+            background-color: blue;
+            color: white;
+        }
+
+        /*属性选择器*/
+        [href] {
+            background-color: blue;
+            color: white;
+        }
+        a[class='class1 class2'] {
+            color: black;
+        }
+        a[class^='c'] {
+            font-size: 2em;
+        }
+        a[class$='2'] {
+            font-weight: bold;
+        }
+        a[class*='1'] {
+            border: 2px solid green;
+        }
+        a[class~='class2'] {
+            border-radius: 8px;
+        }
+        a[lang|='en'] {
+            padding: 10px;
+        }
+
+        /*并集选择器*/
+        a, [lang|='en'] {
+            display: block;
+        }
+
+        /*后代选择器*/
+        header > h1 {
+            font-size: 36px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="webpack">Cascading Style Sheet</h1>
+        <p class="webpack">将你的配置信息写到多个分散的文件中去，然后在执行webpack的时候利用--config参数指定要加载的配置文件，配置文件利用moduleimports导出。你可以在webpack/react-starter 看到是使用这种发方法的。</p>
+    </header>
+
+    <section>
+        <article>
+            <h1 id="title">你的配置信息写到</h1>
+            <a class="class1 class2" lang="en-gb" href="http://www.baidu.com">百度一下</a>
+        </article>
+    </section>
+</body>
+
+</html>
