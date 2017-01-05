@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>嵌入内容</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <img src="./352747_10.png" alt="images" usemap="#mymap" width="128" height="128" />
+
+    <map name="mymap">
+        <area shape="rect" coords="3,5,68,62" href="http://www.baidu.com" target="myframe" alt="">
+        <area shape="rect" coords="70,5,130,62" href="http://www.google.com" alt="">
+        <area shape="default" coords="default" href="http://www.jd.com" alt="">
+    </map>
+
+    <iframe name="myframe" seamless sandbox="allow-forms allow-scripts allow-same-origin" width="300" height="300"></iframe>
+
+    <br>
+
+    <embed src="http://www.iqiyi.com/v_19rra8c8vo.html" type="application/x-shockwave-flash" width="500" height="350" allowfullscreen="true" />
+
+    <object width="500" height="350" data="http://www.iqiyi.com/v_19rra8c8vo.html" >
+        <param name="allowfullscreen" value="true" />
+        <strong>sorry can not display vedio</strong>
+    </object>
+
+    <object width="128" height="128" data="./352747_11.png"></object>
+
+    <progress value="0" max="100" id="myprogress"></progress>
+    <div>
+        <button type="button" value="30">30</button>
+        <button type="button" value="60">60</button>
+        <button type="button" value="90">90</button>
+    </div>
+
+    <script>
+        var buttons = document.getElementsByTagName('button');
+        var progres = document.getElementById('myprogress');
+        for(var i=0, len=buttons.length; i<len; i++) {
+            buttons[i].onclick = function(e){
+                progres.value = this.value;
+            };
+        }
+
+    </script>
+</body>
+
+</html>
