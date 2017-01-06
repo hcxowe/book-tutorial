@@ -24,6 +24,7 @@
         p.webpack {
             color: blue;
             border: 1px solid green;
+            width: 300px;
         }
 
         /*ID选择器*/
@@ -61,12 +62,158 @@
             display: block;
         }
 
-        /*后代选择器*/
+        /*子代选择器*/
         header > h1 {
             font-size: 36px;
         }
+        /*后代选择器*/
+        section a {
+            width: 150px;
+        }
+        /*相邻兄弟选择器*/
+        ul li + li {
+            border-bottom: 1px black solid;
+        }
+        /*普通兄弟选择器*/
+        article > h1 ~ ul {
+            border: 1px dotted red;
+        }
 
-        
+
+        /*伪元素选择器*/
+        p::first-line {
+            background-color: lightsalmon;
+            color: white;
+        }
+        p::first-letter {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        h1::before {
+            content: '<';
+        }
+        h1::after {
+            content: '>';
+        }
+        /*CSS计数器*/
+        body {
+            counter-reset: paracount;
+        }
+        li::before {
+            content: counter(paracount) '.';
+            counter-increment: paracount;
+        }
+
+
+        /*伪类选择器*/
+        /*跟元素选择器 总是匹配html元素*/
+        :root {
+            padding: 15px;
+        }
+
+        :first-child {
+            padding: 10px;
+            border: 5px greenyellow dotted;
+        }
+        :last-child {
+            padding: 10px;
+            border: 5px darkcyan dotted;
+        }
+        :only-child {
+            border: 5px blueviolet solid;
+        }
+        header > h1:only-of-type {
+            color: darksalmon;
+        }
+        ul > li:nth-child(even) {
+            color: white;
+        }
+        ul > li:nth-child(odd) {
+            color: darkseagreen;
+        }
+        ul > li:nth-last-child(even) {
+            background-color: black;
+        }
+        article > a:nth-of-type(1) {
+            background-color: darkturquoise;
+        }
+        article > a:nth-last-of-type(1) {
+            background-color: orangered;
+        }
+
+
+        /*UI伪类选择器*/
+        :enabled {
+            font-family: '微软雅黑';
+        }
+        :disabled {
+            font-size: 20px;
+        }
+        :checked::after {
+            content: '以选中';
+            display: inline-block;
+            width: 100px;
+        }
+        :default {
+            outline: 2px solid red;
+        }
+        :invalid {
+            outline: 1px dotted mediumvioletred;
+        }
+        :valid {
+            outline: 2px dotted lawngreen;
+        }
+        :in-range {
+
+        }
+        :out-of-range {
+
+        }
+        :required {
+
+        }
+    
+
+        /*动态伪类选择器*/
+        a:link {
+            color: cadetblue;
+        }
+        a:visited {
+            color: darksalmon;
+        }
+        a:hover {
+            color: yellow;
+        }
+        a:active {
+            color: indianred;
+        }
+        :focus {
+            padding: 5px;
+            outline: 2px crimson solid;
+        }
+
+
+        /*其他选择器*/
+        a:not([class*='class1']) {
+            padding: 15px;
+            color: white;
+            font-size: 36px;
+        }
+
+        div:empty {
+            width: 100px;
+            height: 100px;
+            background-color: darkgoldenrod;
+        }
+
+        :lang(en) {
+
+        }
+
+        :target {
+            background-color: royalblue;
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -76,12 +223,26 @@
         <p class="webpack">将你的配置信息写到多个分散的文件中去，然后在执行webpack的时候利用--config参数指定要加载的配置文件，配置文件利用moduleimports导出。你可以在webpack/react-starter 看到是使用这种发方法的。</p>
     </header>
 
+    <div></div>
+
     <section>
         <article>
             <h1 id="title">你的配置信息写到</h1>
             <a class="class1 class2" lang="en-gb" href="http://www.baidu.com">百度一下</a>
+            <a class="class1 class2" lang="en-gb" href="http://www.baidu.com">google</a>
+            <a class="" lang="en-gb" href="#title">qita</a>
+            <input type="text" name="" value="禁用该输入框" disabled />
+            <input type="text" name="" value="" required />
+            <input type="checkbox" name="" value="" checked />
+            <input type="radio" name="" value="" />
+            <ul>
+                <li>chrome</li>
+                <li>firefox</li>
+                <li>opera</li>
+                <li>ie</li>
+                <li>safari</li>
+            </ul>
         </article>
     </section>
 </body>
-
 </html>
