@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>过渡、动画、变换</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                overflow: auto;
+                box-sizing: border-box;
+                height: 100%;
+            }
+            
+            header {
+                height: 100px;
+                font-size: large;
+                border: medium solid black;
+
+                transition-delay: 100ms;
+                transition-duration: 1000ms;
+            }
+
+            header:hover {
+                font-size: x-large;
+                border: medium solid red;
+                background-color: green;
+                color: white;
+                padding: 4px;
+
+                transition-delay: 100ms;
+                transition-duration: 1000ms;
+                transition-timing-function: ease-in;
+                transition-property: background-color, color, padding, font-size, border;
+            }
+
+            section {
+                height: 100px;
+                font-size: large;
+                border: medium solid black;
+            }
+
+            section:hover {
+                -webkit-animation-delay: 100ms;
+                -webkit-animation-duration: 1000ms;
+                -webkit-animation-iteration-count: 2;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-name: 'GrowShrink';
+                -webkit-animation-direction: alternate;
+            }
+
+            @-webkit-keyframes GrowShrink {
+                from {
+                    font-size: xx-small;
+                    border: medium solid black;
+                }
+
+                25% {
+                    background-color: darkseagreen;
+                }
+
+                50% {
+                    background-color: lightcoral;
+                }
+
+                to {
+                    font-size: x-large;
+                    border: medium solid red;
+                    background-color: green;
+                    color: white;
+                    padding: 4px;
+                }
+            }
+
+            article {
+                padding: 50px;
+            }
+
+            h3 {
+                width: 150px;
+                transform: rotate(-45deg) scale(1.2);
+                transform-origin: right top;
+            }
+
+            span {
+                display: inline-block;
+            }
+
+            span:hover {
+                transition-duration: 1000ms;
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            你是一个头
+        </header>
+
+        <section>
+            你是一个片段
+        </section>
+
+        <article>
+            <h3>你是一个标题</h3>
+            <p><span>你是行内元素</span>你是段落</p>
+        </article>
+    </body>
+</html>
