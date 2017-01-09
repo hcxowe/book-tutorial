@@ -22,16 +22,21 @@
             border-width: 5px;
             border-style: dashed;
             border-color: dodgerblue;
+            border-radius: 5px;
         }
         li:nth-child(2) {
+            padding: 5px;
             border-width: thin;
             border-style: dotted;
             border-color: dodgerblue;
+            border-radius: 15px / 20px;
+            
         }
         li:nth-child(3) {
             border-width: medium;
             border-style: double;
             border-color: dodgerblue;
+            border-radius: 50% 20px 25% 10px / 25% 10px 15% 50%;
         }
         li:nth-child(4) {
             border-width: thick;
@@ -59,6 +64,30 @@
             border-color: dodgerblue;
         }
 
+        ul {
+            overflow: auto;
+            border-image: url(./b2.png) 8 / 4px round repeat;
+            -webkit-border-image: url(./b2.png) 8 / 4px round repeat;
+            box-shadow: 0px 0px 10px 2px red;
+            outline: thick solid deepskyblue;
+        }
+
+        section {
+            padding: 50px;
+            border: 20px dotted slateblue;
+            background-color: lightgray;
+            background-image: url(./main_88.bmp);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: scroll;
+            background-origin: border-box;
+            background-clip: content-box;
+        }
+
+        body {
+            background: darkred url(./main_66.bmp) top right repeat-x border-box padding-box scroll;
+        }
     </style>
 </head>
 
