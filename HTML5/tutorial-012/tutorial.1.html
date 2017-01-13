@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Canvas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            canvas {
+                border: medium double grey;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas1" width="500" height="500">
+            your browse doesn't support the <code>canvas</code> element.
+        </canvas>
+
+        <script>
+            var ctx = document.getElementById('canvas1').getContext('2d');
+
+            //var grad = ctx.createLinearGradient(0, 0, 500, 140);
+            var grad = ctx.createRadialGradient(250, 70, 20, 200, 60, 100);
+            grad.addColorStop(0, 'red');
+            grad.addColorStop(0.5, 'white');
+            grad.addColorStop(1, 'black');
+            
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 500, 140);
+
+            var offset = 10,
+                size = 50,
+                count = 5;
+
+            ctx.fillStyle = 'black';
+            for (var i = 0; i < count; i++) {
+                ctx.fillRect(offset * (i + 1) + size * i, offset, 50, 50);
+                ctx.strokeRect(offset * (i + 1) + size * i, offset * 2 + size, 50, 50);
+            }
+            
+            ctx.clearRect(0, 20, (offset + size) * count + offset, 20);
+
+            var fillColors = ['black', 'grey', 'lightgrey', 'red', 'blue'];
+            var strokeColors = ['rgb(0,0,0)', 'rgb(100,100,100)', 'rgb(200,200,200)'];
+
+            ctx.lineWidth = 8;
+            ctx.lineJoin  = 'round';
+            ctx.strokeStyle = strokeColors[0];
+            ctx.fillStyle = fillColors[0];
+            ctx.strokeRect(offset, (offset + size) * 2 + offset, size, size);
+            ctx.fillRect(offset, (offset + size) * 3 + offset, size, size);
+
+            ctx.lineJoin  = 'bevel';
+            ctx.strokeStyle = strokeColors[1];
+            ctx.fillStyle = fillColors[1];
+            ctx.strokeRect((offset + size) * 1 + offset, (offset + size) * 2 + offset, size, size);
+            ctx.fillRect((offset + size) * 1 + offset, (offset + size) * 3 + offset, size, size);
+
+            ctx.lineJoin  = 'miter';
+            ctx.strokeStyle = strokeColors[2];
+            ctx.fillStyle = fillColors[2];
+            ctx.strokeRect((offset + size) * 2 + offset, (offset + size) * 2 + offset, size, size);
+            ctx.fillRect((offset + size) * 2 + offset, (offset + size) * 3 + offset, size, size);
+
+            
+
+
+        </script>
+    </body>
+</html>
+
