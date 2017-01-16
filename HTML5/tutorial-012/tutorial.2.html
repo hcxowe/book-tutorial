@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Canvas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            canvas {
+                border: medium double grey;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas1" width="500" height="500">
+            your browse doesn't support the <code>canvas</code> element.
+        </canvas>
+
+        <script>
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.fillStyle = 'yellow';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 4;
+
+            ctx.beginPath();
+            ctx.moveTo(10, 10);
+            ctx.lineTo(110, 10);
+            ctx.lineTo(110, 120);
+            
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(150, 10);
+            ctx.lineTo(200, 10);
+            ctx.lineTo(200, 120);
+            ctx.lineTo(190, 120);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(250, 10);
+            ctx.lineTo(250, 120);
+            ctx.stroke();
+
+        </script>
+    </body>
+</html>
+
