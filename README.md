@@ -27,6 +27,8 @@
 
 ### High Performance Web Sites --- 高性能网站建设指南
 
+### Performance Best Practices for Web Developers Even Faster Web Sites --- 高性能网站建设进阶指南
+
 ### JavaScript: The Good Parts --- JavaScript语言精粹
 
 ### High Performance JavaScript --- 高性能JavaScript
