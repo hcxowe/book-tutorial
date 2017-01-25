@@ -127,6 +127,7 @@ Object.defineProperty(obj, 'porperty', {
     var per1 = new Person('hcx', 'age');
 ```
 - 创建新对象
+- 设置原型对象
 - 将新对象作为构造函数的作用域
 - 执行构造函数
 - 返回新对象
