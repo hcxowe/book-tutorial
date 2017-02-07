@@ -289,4 +289,75 @@
 
         document.body.appendChild(script);
     }
+
+    // 等同于把字符串传给eval函数
+    eval(code);
 ```
+
+#### 动态样式
+
+```js
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'xxx.css';
+
+    var head = document.getElementsByTagName('head')[0];
+    head.appendChild(link);
+```
+
+- IE也不允许DOM访问style的子节点
+
+```js
+    function loadStyleString(css) {
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        try {
+            style.appendChild(document.createTextNode('css'));
+        }
+        catch(e) {
+            style.styleSheet.cssText = css;
+        }
+
+        var head = document.getElementsByTagName('head')[0];
+
+        head.appendChild(style);
+    }
+```
+
+#### table
+
+```js
+    var table = document.createElement('table');
+    table.border = 1;
+    table.width  = '100%';
+
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+
+    tbody.insertRow(0);
+    tbody.rows[0].insertCell(0);
+    tbody.rows[0].cells[0].appendChild(document.createTextNode('Cell 1,1'));
+    tbody.rows[0].insertCell(1);
+    tbody.rows[0].cells[1].appendChild(document.createTextNode('Cell 2,1'));
+
+    tbody.insertRow(1);
+    tbody.rows[1].insertCell(0);
+    tbody.rows[1].cells[0].appendChild(document.createTextNode('Cell 1,2'));
+    tbody.rows[1].insertCell(1);
+    tbody.rows[1].cells[1].appendChild(document.createTextNode('Cell 2,2'));
+
+    document.body.appendChild(table);
+```
+
+#### NodeList
+
+- NodeList NanedNodeMap HTMLCollection他们的实例是动态的，每次文档结构变化都会得到更新
+
+### 小结
+
+- 最基本的节点类型是Node，所有其他类型都继承自Node
+- Document类型表示整个文档，document是Document的一个实例
+- Element节点表示文档中的所有HTML和XML元素
+- 其他节点类型：文本内容，注释，文档类型，CDATA区域，文档片段
+- DOM操作是JS程序开销最大的部分，尽力减少DOM操作
