@@ -38,3 +38,5 @@
 ### Effective JavaScript --- 编写高质量js的68个有效方法
 
 ### TeamGeek --- 极客与团队
+
+### JavaScript框架设计
