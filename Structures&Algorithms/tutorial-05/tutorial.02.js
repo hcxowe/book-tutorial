@@ -2,10 +2,11 @@
  * 链表
  */
 
-// 单向链表
+// 双向链表
 function Node(item) {
     this.item = item;
     this.next = null;
+    this.prev = null;
 }
 
 function List() {
@@ -31,24 +32,20 @@ List.prototype = {
 
         var newNode = new Node(newItem);
         newNode.next = node.next;
+        newNode.prev = node;
         node.next = newNode;
         return true;
     },
 
-    findPrevious: function(item) {
-        var node = this.head;
-        while (node.next != null && node.next.item != item) {
-            node = node.next;
-        }
-
-        return node || -1;
-    },
-
     remove: function(item) {
-        var prevNode = this.findPrevious(item);
+        var node = this.find(item);
 
-        if (prevNode != -1) {
-            prevNode.next = prevNode.next.next;
+        if (node.next) {
+            node.next.prev = node.prev;
+            node.prev.next = node.next;
+        }
+        else {
+            node.prev.next = null;
         }
     },
 

@@ -2,7 +2,6 @@
  * 链表
  */
 
-// 单向链表
 function Node(item) {
     this.item = item;
     this.next = null;
@@ -14,49 +13,49 @@ function List() {
 
 List.prototype = {
     find: function(item) {
-        var node = this.head;
-        while (node.item != item) {
-            node = node.next;
+        var curNode = this.head;
+        while (curNode.item != item) {
+            curNode = curNode.next;
         }
 
-        return node || -1;
+        return curNode || -1;
     },
 
     insert: function(newItem, item) {
-        var node = this.find(item);
+        item = this.find(item);
         
-        if (node == -1) {
+        if (item == -1) {
             return false;
         }
 
         var newNode = new Node(newItem);
-        newNode.next = node.next;
-        node.next = newNode;
+        newNode.next = item.next;
+        item.next = item;
         return true;
     },
 
     findPrevious: function(item) {
-        var node = this.head;
-        while (node.next != null && node.next.item != item) {
-            node = node.next;
+        var item = this.head;
+        while (item.next != null && item.next.item != item) {
+            item = item.next;
         }
 
-        return node || -1;
+        return item || -1;
     },
 
     remove: function(item) {
-        var prevNode = this.findPrevious(item);
+        var prevItem = this.findPrevious(item);
 
-        if (prevNode != -1) {
-            prevNode.next = prevNode.next.next;
+        if (prevItem != -1) {
+            prevItem.next = prevItem.next.next;
         }
     },
 
     display: function() {
-        var node = this.head;
-        while (node.next != null) {
-            console.log(node.next.item);
-            node = node.next;
+        var curNode = this.head;
+        while (curNode.next != null) {
+            console.log(curNode.next.item);
+            curNode = curNode.next;
         }
     }
 };
