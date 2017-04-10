@@ -124,3 +124,7 @@ ary2.filter(function(value) {
 }); // [11, 11, 22]
 
 ary2; // [0, 1, 4, 5, 8, 11, 11, 22]
+
+// filter 忽略掉自动填充到数组的undefined值的项，手动设定为undefined值的项不会被忽略
+// map 不会忽略undefined值的项
+// forEach， some， every 都会忽略undefined值的项
