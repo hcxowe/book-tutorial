@@ -65,7 +65,7 @@ var P = (function(prototype, ownProperty, undefined) {
                 }
             }
 
-            if(isFunction(proto.init)) {
+            if(!isFunction(proto.init)) {
                 proto.init = _superClass;
             }
 
@@ -75,3 +75,19 @@ var P = (function(prototype, ownProperty, undefined) {
 
     return P;
 }('prototype', ({}).hasOwnProperty));
+
+var Animal = P(function(proto, superProto) {
+    proto.init = function(name) {
+        this.name = name;
+    };
+
+    proto.move = function(meters) {
+        console.log(this.name + ' move ' + meters + 'm.');
+    };
+});
+
+var a = new Animal('aaa');
+var b = Animal('bbb');
+
+a.move(1);
+b.move(2);
