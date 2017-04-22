@@ -1,0 +1,171 @@
+
+div {
+    background-color: black;
+}
+
+/*层次选择器*/
+.parent > .child1 {
+    background: green;
+}
+
+.parent .sunzi1 {
+    background-color: red;
+}
+
+div ~ p {
+    color: white;
+}
+
+div + p {
+    font-size: 20px;
+}
+
+/*伪类*/
+.wei-class {
+    background: none;
+}
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: grey;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: blue;
+}
+
+a:focus {
+   color: purple;
+}
+
+h1:target {
+    color: darkorange;
+}
+
+input:checked {
+    color: palevioletred;
+}
+
+label:enabled {
+    color: deeppink;
+}
+
+input:disabled {
+    color: darkcyan;
+}
+
+/*结构伪类选择*/
+a:first-child {
+    font-weight: bold;
+}
+
+a:last-child {
+    font-weight: bold;
+}
+
+div a:nth-child(odd) {
+    font-size: 10px;
+}
+
+div a:nth-child(even) {
+    font-size: 20px;
+}
+
+div a:nth-last-child(2n-1) {
+    color: red;
+}
+
+p:nth-of-type(1) {
+    font-size: 20px;
+}
+
+p:nth-last-of-type(1) {
+    font-size: 10px;
+}
+
+p:first-of-type {
+
+}
+
+p:last-of-type {
+
+}
+
+p:only-child {
+    background-color: royalblue;
+}
+
+p:only-of-type {
+    font-size: 30px;
+}
+
+div:empty {
+    border: 2px solid #ccc;
+}
+
+ul > li:nth-child(2n+1) {
+    color: blue;
+}
+
+ul:hover li:not(:hover) {
+    color: grey;
+}
+li:hover {
+    color: lightgoldenrodyellow;
+}
+
+/*伪元素*/
+p::first-letter {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+p::first-line {
+    font-style: italic;
+}
+
+a::after {
+    content: "{" attr(href) "}";
+}
+
+::selection {
+    background: white;
+    color: blueviolet;
+}
+
+
+/*属性选择器*/
+a[href] {
+    font-family: 微软雅黑;
+}
+
+a[href='#'] {
+    font-style: italic;
+}
+
+a[href|='#title'] {
+    font-size: 20px;
+}
+
+a[class~='hidden'] {
+    display: none;
+}
+
+a[class*='hi'] {
+    display: none;
+}
+
+a[href^='#t'] {
+    
+}
+
+a[href$='le'] {
+
+}
+
