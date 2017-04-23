@@ -1,0 +1,55 @@
+.base-border {
+  padding: 8px;
+  border: 45px solid #ccc;
+  border-image: url(703112f475d2c8f6543c94929c9cf9d9.jpg) 50 repeat;
+}
+.base-border .radius5 {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  border-top-left-radius: 50px 25px;
+  border-top-right-radius: 50px 25px;
+  border-bottom-left-radius: 50px 25px;
+  border-bottom-right-radius: 50px 25px;
+  background-color: orange;
+}
+.triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 10px solid fuchsia;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  -moz-border-bottom-colors: #111, #222, #333, #444;
+}
+.radius {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 red;
+}
+.radius2 {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 30px solid #111;
+  border-width: 10px 5px 10px 5px;
+  border-radius: 100px;
+}
+.radius3 {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: orange;
+}
+.radius4 {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  border-radius: 50px 50px 0 0;
+  background-color: orange;
+}
