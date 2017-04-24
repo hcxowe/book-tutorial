@@ -1,0 +1,24 @@
+.p-test {
+  font-family: '\5FAE\8F6F\96C5\9ED1';
+  font-style: italic;
+  font-weight: 600;
+  font-variant: small-caps;
+  word-spacing: 1em;
+  word-break: break-all;
+  word-wrap: break-word;
+  letter-spacing: .2em;
+  vertical-align: middle;
+  text-decoration: line-through;
+  text-indent: 2em;
+  text-align: justify;
+  line-height: 40px;
+  white-space: pre-wrap;
+  direction: ltr;
+  text-shadow: red 0px 0px 5px, green 2px 2px 5px;
+}
+.p-overflow {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
