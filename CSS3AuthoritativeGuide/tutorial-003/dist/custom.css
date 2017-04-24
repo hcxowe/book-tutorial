@@ -1,0 +1,29 @@
+.bg-1 {
+  width: 800px;
+  height: 400px;
+  padding: 20px;
+  border: 10px solid #ccc;
+  background-color: green;
+  background-image: url(e1702cf229154dfb1083daf8961943c1.jpg);
+  background-repeat: no-repeat;
+  background-position: 0, 0;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-size: cover;
+  background-blend-mode: screen;
+}
+.bg-2 {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 0, 0, 0.5);
+  background-color: red;
+  background-color: #FF0000;
+  background-color: #ff0000;
+}
+.bg-3 {
+  width: 800px;
+  height: 400px;
+  padding: 20px;
+  border: 10px solid #ccc;
+  background: url(e1702cf229154dfb1083daf8961943c1.jpg) no-repeat top left, url(8565b7f960fb654d05dbd4620f46af9a.jpg) no-repeat bottom left;
+}

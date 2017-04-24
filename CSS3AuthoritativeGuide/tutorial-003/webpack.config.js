@@ -3,8 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 多个提取实例
-const extractCSS = new ExtractTextPlugin('custom.css');
-const extractLESS = new ExtractTextPlugin('common.css');
+const extractCSS = new ExtractTextPlugin('common.css');
+const extractLESS = new ExtractTextPlugin('custom.css');
 
 module.exports = {
     context: path.resolve(__dirname, 'app'),
