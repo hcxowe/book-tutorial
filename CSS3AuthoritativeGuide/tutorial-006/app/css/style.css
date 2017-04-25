@@ -1,0 +1,84 @@
+body {
+  background-color: #282828;
+  background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%);
+  background-position: 0 0, 8px 8px, 0 1px, 8px 9px;
+  background-size: 16px 16px;
+}
+.linear div {
+  float: left;
+  width: 400px;
+  height: 150px;
+  border: 1px solid #666;
+  margin: 10px 10px;
+  line-height: 150px;
+  text-align: center;
+  font-weight: bold;
+}
+.linear div:nth-child(1) {
+  background-image: linear-gradient(0deg, orange, green);
+}
+.linear div:nth-child(2) {
+  background-image: linear-gradient(90deg, orange, green);
+}
+.linear div:nth-child(3) {
+  background-image: linear-gradient(-90deg, orange, green);
+}
+.linear div:nth-child(4) {
+  background-image: linear-gradient(180deg, orange, green);
+}
+.linear div:nth-child(5) {
+  background-image: linear-gradient(45deg, orange, green);
+}
+.linear div:nth-child(6) {
+  background-image: linear-gradient(-45deg, orange, green);
+}
+.linear div:nth-child(7) {
+  background-image: linear-gradient(135deg, orange, green);
+}
+.linear div:nth-child(8) {
+  background-image: linear-gradient(-135deg, orange, green);
+}
+.linear div:nth-child(9) {
+  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+}
+.linear div:nth-child(10) {
+  background-image: linear-gradient(90deg, red 0%, orange 10%, yellow 20%, green 30%, blue 60%, indigo 90%, violet 100%);
+}
+.radial {
+  clear: both;
+}
+.radial div {
+  float: left;
+  width: 300px;
+  height: 300px;
+  margin: 10px 10px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 300px;
+}
+.radial div:nth-child(1) {
+  background-image: radial-gradient(red, green);
+}
+.radial div:nth-child(2) {
+  background-image: radial-gradient(5em circle, red, green);
+}
+.radial div:nth-child(3) {
+  background-image: radial-gradient(1em 2em ellipse, red, green);
+}
+.radial div:nth-child(4) {
+  background-image: radial-gradient(200px 100px at 200px 150px, red, green);
+}
+.radial div:nth-child(5) {
+  background-image: radial-gradient(200px 100px at top, red, green, blue);
+}
+.radial div:nth-child(6) {
+  border-radius: 50%;
+  background-image: radial-gradient(8em circle at center, red 20%, green 40%, blue 60%, orange 80%, indigo 100%);
+}
+.radial div:nth-child(7) {
+  background-image: repeating-linear-gradient(red 20px, green 40px, blue 80px);
+}
+.radial div:nth-child(8) {
+  border-radius: 50%;
+  background-image: repeating-radial-gradient(red 20px, green 40px, blue 80px);
+}
