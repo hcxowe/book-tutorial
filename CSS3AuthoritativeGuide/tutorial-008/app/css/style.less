@@ -1,0 +1,60 @@
+.transition {
+    div {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+
+    div:nth-child(1) {
+        background-color: green;
+        transition: background-color 2s linear;
+
+        &:hover {
+            background-color: red;
+        }
+    }
+}
+
+.animate {
+    div {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+
+    div:nth-child(1) {
+        background-color: green;
+        &:hover {
+            animation: wobble 5s linear alternate infinite;
+        }
+    }
+}
+
+@keyframes wobble {
+    0% {
+        margin-left: 15px;
+        background-color: green;
+    }
+    20% {
+        margin-left: 30px;
+        background-color: red;
+    }
+    40% {
+        margin-left: 45px;
+        background-color: blue;
+    }
+    60% {
+        margin-left: 60px;
+        background-color: grey;
+    }
+    80% {
+        margin-left: 75px;
+        background-color: darkmagenta;
+    }
+    100% {
+        margin-left: 90px;
+        background-color: goldenrod;
+    }
+}
