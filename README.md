@@ -15,6 +15,8 @@
 
 ### Javascript设计模式
 
+### You Do Not Know Javascript --- 你不知道的javascript
+
 ### DOM Scripting --- JavaScript DOM 编程艺术
 
 ### Maintainable JavaScript --- 编写可维护的Javascript
