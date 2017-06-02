@@ -1,0 +1,38 @@
+{
+    "name": "package",      // 模块名称
+    "preferGlobal":  false, // 是否支持全局安装
+    "description": "this is a package", // 包说明
+    "version": "1.0.0", // 包版本
+    "author": {
+        "name": "hcxowe",
+        "email": "hcxowe@126.com",
+        "web": "https://www.github.com/hcxowe"
+    }, // 作者信息
+    "maintainers": [
+        {
+            "name": "hcxowe",
+            "email": "hcxowe@126.com",
+            "web": "https://www.github.com/hcxowe"
+        }
+    ], // 维护者
+    "bugs": {
+        "email": "hcxowe@126.com",
+        "url": "https://www.github.com/hcxowe"
+    }, // bug提交地址
+    "licenses": [
+        {
+            "type": "",
+            "url": ""
+        }
+    ], // 许可证数组
+    "repository": {
+        "type": "",
+        "url": ""
+    }, //仓库托管地址
+    "keywords": [
+        "node", "javascript"
+    ],
+    "dependencies": {
+        "color": "1.0.3"
+    }  // 依赖包
+}
