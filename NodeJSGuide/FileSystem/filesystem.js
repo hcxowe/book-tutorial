@@ -29,5 +29,3 @@ function writeFileAndConsole(path, data) {
     });
 }
 
-readFileAndConsole(__dirname + '/test/1.text');
-
