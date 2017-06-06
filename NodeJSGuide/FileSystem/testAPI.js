@@ -123,7 +123,41 @@ fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) => {
 });
 
 
+// fs.realpath(path[, options], callback)
 
+// fs.rename(oldPath, newPath, callback)
 
+// fs.rmdir(path, callback)
 
+fs.stat(path.join(__dirname, '/test/1.txt'), (err, stats) => {
+    console.log('stat:');
+    console.log(stats);
+});
 
+// 创建了一个名为 "new-port" 且指向 "foo" 的符号链接
+fs.symlink(path.join(__dirname, '/test'), path.join(__dirname, '/new-test'), () => {
+    fs.stat(path.join(__dirname, '/test'), (err, stats) => {
+        console.log('stat /test: ');
+        console.log(stats);
+    });
+});
+
+// fs.unlink(path, callback)
+
+// fs.truncate(path, len, callback)
+
+// fs.unwatchFile(filename[, listener])
+
+// fs.utimes(path, atime, mtime, callback)  改变指定的路径所指向的文件的文件时间戳
+
+// fs.watch(filename[, options][, listener]) 监视 filename 的变化，filename 可以是一个文件或一个目录。 返回的对象是一个 fs.FSWatcher
+
+// fs.watchFile(filename[, options], listener) 监视 filename 的变化。 回调 listener 会在每次访问文件时被调用
+
+// fs.write(fd, buffer[, offset[, length[, position]]], callback)
+
+// fs.write(fd, string[, position[, encoding]], callback)
+
+// fs.writeFile(file, data[, options], callback) 异步地写入数据到文件，如果文件已经存在，则替代文件
+
+// fs 常量  常量由 fs.constants 输出
