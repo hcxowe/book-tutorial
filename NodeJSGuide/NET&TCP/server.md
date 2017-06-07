@@ -62,12 +62,25 @@ server.on('connection', (socket) => {
     // 设置数据编码方式，影响 data 事件中接受的数据类型
     socket.setEncoding('utf8');
 
-    // pipe 将客户端发送的流数据书写到 WriteStream 中， 接受完数据后 根据 end 参数， true 结束写操作， false 不结束写操作
-    socket.pipe(writeStream, { end: true });    
+    // 设置连接超时时间，10s内无数据发来触发 timeout 事件，但不代表客户端不在发送数据，超时之后客户端也可在发送数据
+    socket.setTimeout(10 * 1000);
+
+    // 暂停data事件的触发，客户端发送的数据暂存在单独的缓存区
+    socket.pause();
+
+    // timeout 事件触发
+    socket.on('timeout', () => {
+        socket.resume();
+
+        // pipe 将客户端发送的流数据书写到 WriteStream 中， 接受完数据后 根据 end 参数， true 结束写操作， false 不结束写操作
+        socket.pipe(writeStream, { end: true });        
+    });
 
     // 每次接受到客户端发送的流数据时触发 data 事件
     socket.on('data', (data) => {
         // 未使用socket.serEncoding()指定编码方式时，data为Buffer对象， 指定编码方式时，data为 String 对象
+
+        socket.pause();
 
         // bytesRead 为socket对象接受到的数据字节数
         console.log('已经接收到: %d 字节数据', socket.bytesRead);
