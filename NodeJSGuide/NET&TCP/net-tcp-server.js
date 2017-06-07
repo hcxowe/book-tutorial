@@ -41,7 +41,7 @@ server.on('connection', (socket) => {
 
 
     // 设置与客服端连接的超时时间
-    socket.setTimeout(10000);
+    socket.setTimeout(5000);
     
     // 暂停触发data事件，将传输数据缓存起来
     socket.pause();
@@ -50,8 +50,16 @@ server.on('connection', (socket) => {
     socket.on('timeout', () => {
         // 恢复，读取被缓存的数据
         socket.resume();
+
         // 将数据写入到文件
         socket.pipe(writeStream);
+
+        socket.setEncoding('utf8');
+        socket.write('hello client');
+    });
+
+    socket.on('data', (data) => {
+        socket.pause();
     });
 });
 
