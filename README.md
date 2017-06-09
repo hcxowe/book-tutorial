@@ -44,3 +44,5 @@
 ### JavaScript框架设计
 
 ### Illustrated CSS3 --- 图解CSS3
+
+### Node.js The Delinitive Guide --- Node.js权威指南
