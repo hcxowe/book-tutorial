@@ -46,3 +46,5 @@
 ### Illustrated CSS3 --- 图解CSS3
 
 ### Node.js The Definitive Guide --- Node.js权威指南
+
+### HTTP: The Definitive Guide --- HTTP权威指南
