@@ -21,7 +21,8 @@
 > db.users.find({ name: 'hcxowe', age: 28 }) --- 多条件查询   
 
 > db.users.find( $and: [{ name: 'hcxowe' }, { age: 28 }]) --- 使用 $and 操作符   
-> db.users.find( $or: [{ name: 'hcxowe'}, { age: 20 }]) --- 使用 $or 操作符
+> db.users.find( $or: [{ name: 'hcxowe'}, { age: 20 }]) --- 使用 $or 操作符   
+> db.users.find( { age: { $gt: 20, $lt: 30 }} ) --- 使用 $ge $lt 设置age范围， 此外还有 $gte(大于等于) $lte(小于等于) $ne(不等于)
 
 ### 更新
 
@@ -52,3 +53,46 @@
  ### 删除集合
 
  > db.users.drop() --- 删除users
+
+ ### 帮助
+
+ > help --- shell的帮主信息
+
+ > db.help() --- db的方法
+
+ ### 查询计划
+
+ ```js
+ // 向number集合中添加20000个文档
+ for (var i=0; i<20000; i++) {
+    db.numer.save({ num: i });
+ }
+ ```
+
+ > db.numer.find({ num: { $gt: 500, $lt: 510 } }).explain('executionStats') --- 查看 mongodb 是如何获取指定条件的文档的
+
+ > db.number.createIndex({ num: 1 }) --- 创建索引，{num: 1} 表示应该为 number 集合中所有文档的 num 键建立升序索引
+
+ > db.numer.getIndexes() --- 获取索引信息
+ 
+ > db.numer.find({ num: { $gt: 500, $lt: 510 } }).explain('executionStats') --- 查看此时输出的信息，应答时间大幅减少
+
+ ### 获取数据库信息
+
+ > show dbs --- 获取数据库列表
+
+ > show collections --- 获取集合列表
+
+ > db.stats() --- 低级别数据库和集合分析
+
+ > db.number.stats() --- 查看指定集合的信息
+
+ ### 命令如何执行
+
+ > 无论什么功能，所有数据库命令都是在一个叫做$cmd的虚拟集合上实现查询
+
+ > db.stats() 等价于 db.runCommand({ dbstats: 1 })
+
+ > db.runCommand --- 可以查看方法的实现
+
+ > db.numer.get 然后两次 Tab 可以查看已 get 开头的方法
