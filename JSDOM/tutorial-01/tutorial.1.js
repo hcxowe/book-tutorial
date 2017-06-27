@@ -1,6 +1,6 @@
 // getElementById return Node
 var title = document.getElementById('title');
-//getElementByTagName  return NodeList
+//getElementByTagName  return HTMLCollection
 document.getElementsByTagName('p');
 // getElementByClassName  html新增方法
 function getElementsByClassName(node, classname){
