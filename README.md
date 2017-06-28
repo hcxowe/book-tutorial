@@ -48,3 +48,5 @@
 ### Node.js The Definitive Guide --- Node.js权威指南
 
 ### HTTP: The Definitive Guide --- HTTP权威指南
+
+### ECMAScript 6 primer --- ES6入门
