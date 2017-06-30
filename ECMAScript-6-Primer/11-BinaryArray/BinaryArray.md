@@ -92,3 +92,64 @@ Uint8ClampedArray: 负向溢出都等于0，正向溢出都等于255
 ### TypedArray.prototype.buffer
 
 整段内存对应的ArrayBuffer对象， 该属性只读
+
+## 复合视图
+
+```js
+var buffer = new ArrayBuffer(24);
+
+var view1 = new Uint32Array(buffer, 0, 1);
+var view2 = new Uint8Array(buffer, 4, 16);
+var view3 = new Float32Array(buffer, 20, 1);
+```
+
+## DataView视图
+
+DataView的get方法默认使用大端字节序解读数据，第二个参数控制字节序，false 大端， true 小端 
+
+```js
+var buffer = new ArrayBuffer(24);
+var dv = new DataView(buffer);
+
+// 以8位无符号整数读取第一个字节
+var v1 = dv.getUint8(0, false);
+
+// 以16位无符号整数从第二个字节读取两个字节
+var v2 = dv.getUint16(1);
+
+// 以16位无符号整数从第四个字节读取两个字节
+var v3 = dv.getUint16(3);
+
+// 在第一个字节，以大端字节序写入值为25的32位整数
+dv.setInt32(0, 25, false);
+```
+
+```js
+// 判断计算机的字节序
+var littleEndian = (function() {
+    var buffer = new ArrayBuffer(2);
+    new DataView(buffer).setInt16(0, 256, true);
+
+    return new Int16Array(buffer)[0] === 256;
+}{});
+```
+
+## 二进制数组的应用
+
+### AJAX
+
+XHR2允许服务器返回二进制数据
+
+### Canvas
+
+网页Canvas元素输出的二进制像素数据就是TypedArray数组
+
+### Websocket
+
+Websocket可以通过ArrayBuffer发送或接受二进制数据
+
+### Fetch API
+
+Fetch API取回的数据就是ArrayBUffer对象
+
+### File API
