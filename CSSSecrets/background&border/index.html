@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>背景与边框</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>半透明边框</h1>
+        <div class="bg-clip box">
+            调整背景的范围 <br>
+            background-clip:<br>
+                padding-box;<br>
+                border-box;<br>
+                content-box;<br>
+        </div>
+
+        <h1>多重边框</h1>
+        <div class="box-shadow box">
+            box-shadow, 投影, 支持逗号分隔语法，可以创建任意数量的投影,拟合边框圆角
+            <br>
+            <br>
+            outline, 描边，值跟border一样，另加outline-offset控制与元素边缘的距离，不拟合边框圆角
+        </div>
+
+        <h1>背景定位</h1>
+        <div class="bg-position box">
+            background-position设置背景定位
+            <br>
+            设置背景对齐的左上角<br>
+            background-origin: <br>
+            padding-box;<br>
+            border-box;<br>
+            content-box;<br>
+        </div>
+
+        <h1>边框内圆角</h1>
+        <div class="border-radius box">
+            投影的扩张半径不能比描边的宽度值小，同时要比 2的平方根 * 圆角半径 大
+        </div>
+
+        <h1>条纹背景</h1>
+        <div class="line-gradient">
+            <div class="box-fixed box-x">
+                水平条纹
+            </div>
+
+            <div class="box-fixed box-y">
+                垂直条纹
+            </div>
+
+            <div class="box-fixed box-xy">
+                斜向条纹45°
+            </div>
+
+            <div class="box-fixed box-xyn">
+                斜向条纹60°
+            </div>
+
+            <div class="box-fixed box-se">
+                同色系条纹
+            </div>
+        </div>
+    </body>
+</html>

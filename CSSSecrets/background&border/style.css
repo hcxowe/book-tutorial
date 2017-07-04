@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    padding-left: 100px;
+    background: forestgreen;
+    color: #FFF;
+}
+
+.box {
+    padding: 1em;
+    width: 300px;
+    /*height: 200px;*/
+    color: #ccc;
+    background: #FFF;
+}
+
+.bg-clip {
+    border: 10px solid hsla(0, 0%, 100%, .5);
+    background-clip: padding-box;
+    /*background-clip: content-box;*/
+    /*background-clip: border-box;*/
+}
+
+.box-shadow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 10px #655, 
+                0 0 0 15px deeppink,
+                5px 5px 5px 15px rgba(0, 0, 0, .6);
+
+    border-radius: 4px;
+    border: 5px solid fuchsia;
+    outline: 5px dotted yellow;
+    outline-offset: 0px;
+}
+
+.bg-position {
+    height: 300px;
+    background: url(1.png) no-repeat #58a;
+    border: 10px solid rgba(0, 0, 0, .6);
+
+    background-position: right 20px bottom 10px;
+    background-origin: content-box;
+}
+
+.border-radius {
+    margin: 10px 0;
+    background: #FFF;
+    border-radius: .8em;
+    box-shadow: 0 0 0 .6em #655;
+    outline: .6em solid #655;
+}
+
+.line-gradient {
+    padding: 1em;
+}
+
+.box-fixed {
+    float: left;
+    margin-left: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.box-x {
+    background: linear-gradient(#fb3 50%, #58a 50%);
+    background-size: 100% 30px;
+}
+
+.box-y {
+    background: linear-gradient(to right, #fb3 50%, #58a 50%);
+    background-size: 30px 100%;
+}
+
+.box-xy {
+    background: linear-gradient(45deg, #fb3 25%, #58a 25%, #58a 50%, #fb3 50%, #fb3 75%, #58a 75%);
+    background-size: 42px 42px;
+}
+
+.box-xyn {
+    background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 15px, #58a 30px);
+}
+
+.box-se {
+    background: #58a;
+    background-image: repeating-linear-gradient(30deg,
+                        hsla(0, 0%, 100%, .1),
+                        hsla(0, 0%, 100%, .1) 15px,
+                        transparent 15px, transparent 30px);
+}
