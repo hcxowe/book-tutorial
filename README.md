@@ -51,3 +51,5 @@
 ### ECMAScript 6 primer --- ES6入门
 
 ### CSS SECRETS --- CSS揭秘
+
+### SVG essentials --- SVG精髓
