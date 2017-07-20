@@ -1,0 +1,244 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    padding: 50px;
+}
+
+.box-wrap {
+    padding: 1em;
+    /*overflow: hidden;*/
+}
+
+.box-wrap::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.box {
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.box-radius1 {
+    background: #fb3;
+    border-radius: 50%;
+}
+
+.box-radius2 {
+    width: 200px;
+    background: #fb3;
+    border-radius: 50%;
+}
+
+.box-radius3 {
+    background: #fb3;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.box-radius4 {
+    background: #fb3;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+}
+
+.box-radius5 {
+    background: #fb3;
+    border-radius: 100% 0 0 0 / 100% 0 0 0;
+}
+
+.box-radius6 {
+    width: 200px;
+    background: #fb3;
+    border-radius: 50% 0 50% 0 / 100% 0 100% 0; 
+}
+
+.box-rhomboid {
+    position: relative;
+    margin-left: 50px;
+    width: 200px;
+    text-align: center;
+}
+.box-rhomboid::before {
+    position: absolute;
+    content: '';
+    left: 0; right: 0; bottom: 0; top: 0;
+    background: #58a;
+    transform: skew(-45deg, 0);
+    z-index: -1;
+}
+
+.box-rhombus {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    transform: rotate(45deg);
+    overflow: hidden;
+}
+
+.box-rhombus > img {
+    transform: rotate(-45deg) scale(1.42);
+}
+
+.box-rhombus1 {
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.box-rhombus1 > img {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    transition: 1s clip-path;
+}
+.box-rhombus1 > img:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/*切角效果*/
+.box-clip {
+    padding: 1em;
+    background: #58a;
+    background: linear-gradient(-135deg, transparent 10px, #58a 0) top right,
+                linear-gradient(-45deg, transparent 10px, #58a 0) bottom right,
+                linear-gradient(45deg, transparent 10px, #58a 0) bottom left,
+                linear-gradient(135deg, transparent 10px, #58a 0) top left;
+
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.box-clip2 {
+    padding: 1em;
+    background: #58a;
+    background: radial-gradient(circle at top left, transparent 10px, #58a 0) top left,
+                radial-gradient(circle at top right, transparent 10px, #58a 0) top right,
+                radial-gradient(circle at bottom left, transparent 10px, #58a 0) bottom left,
+                radial-gradient(circle at bottom right, transparent 10px, #58a 0) bottom right;
+
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.box-clip3 {
+    border: 15px solid transparent;
+    border-image: 1 url('data:image/svg+xml, \
+        <svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" fill="%2358a">\
+            <polygon points="0,1 1,0 2,0 3, 1 3, 2 2, 3 1, 3 0, 2"/> \
+        </svg>');
+}
+
+.box-clip4 {
+    padding: 1em;
+    background: #58a;
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+/*梯形*/
+.box-trapezoid {
+    position: relative;
+    display: inline-block;
+    padding: .5em 1em .35em;
+    color: white;
+}
+.box-trapezoid::before {
+    position: absolute;
+    content: '';
+    top: 0; right: 0; left: 0; bottom: 0;
+    z-index: -1;
+    background: #58a;
+    transform: scaleY(1.3) perspective(.5em) rotateX(5deg);
+    transform-origin: bottom;
+}
+
+.box-nav > a {
+    position: relative;
+    display: inline-block;
+    padding: .5em 1em 0; 
+}
+.box-nav > a::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    background: #ccc;
+    background-image: linear-gradient(hsla(0, 0%, 100%, .6), hsla(0, 0%, 100%, 0));
+    border: 1px solid rgba(0, 0, 0, .4);
+    border-bottom: none;
+    border-radius: .5em .5em 0 0;
+    box-shadow: 0 .15em white inset;
+    transform: perspective(.5em) rotateX(5deg);
+    transform-origin: bottom;
+}
+
+/*饼图*/
+.box-pie {
+    border-radius: 50%;
+    background: yellowgreen;
+    background-image: linear-gradient(to right, transparent 50%, #655 0);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(.5turn);
+    }
+}
+@keyframes bg {
+    50% {
+        background: #655;
+    }
+}
+
+.box-pie::before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;
+    background-color: inherit;
+    transform-origin: left;
+    animation: spin 3s linear infinite,
+                bg 6s step-end infinite;
+}
+
+.box-pie1 {
+    border-radius: 50%;
+    background: yellowgreen;
+    background-image: linear-gradient(to right, transparent 50%, #655 0);
+    animation-delay: -60s;
+}
+.box-pie1::before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;
+    background-color: inherit;
+    transform-origin: left;
+    animation: spin 50s linear infinite,
+                bg 100s step-end infinite;
+    animation-play-state: paused;
+    animation-delay: inherit;
+}
+
+svg {
+    transform: rotate(-90deg);
+    background: yellowgreen;
+    border-radius: 50%;
+}
+circle {
+    fill: yellowgreen;
+    stroke: #655;
+    stroke-width: 50;
+    stroke-dasharray: 60 158;
+}
