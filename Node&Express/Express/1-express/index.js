@@ -1,5 +1,6 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
+var fortune = require('./libs/fortune');
 
 var app = express();
 
@@ -18,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.render('about');
+    res.render('about', { fortune: fortune.getFortune() });
 });
 
 app.use(function(req, res) {
