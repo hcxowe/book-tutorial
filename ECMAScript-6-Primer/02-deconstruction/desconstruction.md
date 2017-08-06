@@ -47,7 +47,7 @@ j; // jjj
 ### 默认值
 
 ```js
-var {x=3, y: yy='yyy'} = {4};
+var {x: x=3, y: y='yyy'} = {x: 4};
 x; // 4 
 y; // yyy
 ```

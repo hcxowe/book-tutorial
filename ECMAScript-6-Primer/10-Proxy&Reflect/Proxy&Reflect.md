@@ -181,7 +181,7 @@ enumerate 拦截 for...in 循环
 - 将Object对象一些明显属于语言层面的方法放到Reflect对象上
 - 修改某些Object方法的返回结果，让其变得更合理
 - 让Object操作都变成函数行为
-- Reflect对象的方法与Proxy对象的方法一一对应，这就让Proxy对象可以方便的嗲用对应的Reflect方法完成默认行为 
+- Reflect对象的方法与Proxy对象的方法一一对应，这就让Proxy对象可以方便的用对应的Reflect方法完成默认行为 
 
 ```js
 var logObj = new Proxy(obj, {

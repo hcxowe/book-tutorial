@@ -49,7 +49,7 @@ var a = 3; // TypeError: Identifier 'a' has already been declared
 }{})
 ```
 ES6中块级作用域外部无法调用块级作用域内部定义的函数   
-严格模式下，函数只能再顶层作用于或函数作用域内声明
+严格模式下，函数只能再顶层作用域或函数作用域内声明
 
 ## const
 
