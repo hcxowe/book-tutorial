@@ -56,7 +56,7 @@ xhr.onreadystatechange = function() {
 xhr.send(null);
 ```
 
-###总结
+### 总结
 - 将脚本放在body闭合之前，可确保脚本在执行前页面已经完成了渲染
 - 合并脚本减少脚本数量
 - 使用无阻赛下载JavaScript的方法
