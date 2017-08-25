@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .bg-red {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>验证包含关系时，是否有外边距合并</h3>
+    <div style="margin: 20px;width:100px;height:100px;background:green;">
+        <div style="margin:10px; width:50px;height:50px;background:red;"></div>
+    </div>
+
+    <h3>即使没有进行显式定义，也会创建块级元素。这种情况发生在把一些文本添加到一个块级元素（比如 div）的开头。即使没有把这些文本定义为段落，它也会被当作段落对待</h3>
+    <div>
+        some text
+        <p>Some more text.</p>
+    </div>
+
+    <h3>解决高度塌陷</h3>
+    <div style="float:left;">
+        <div style="float:left;width:50px;height:50px;background:#c52c2c"></div>
+        <div style="float:left;width:50px;height:50px;background:#298eb9"></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    <h3>id class选择器区分大小写</h3>
+    <div style="float:left;">
+        <div style="float:left;width:50px;height:50px;" class="bg-Red"></div>
+        <div style="float:left;width:50px;height:50px;" class="bg-red"></div>
+    </div>
+</body>
+</html>
