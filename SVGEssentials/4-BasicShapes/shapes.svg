@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ 
+<svg xmlns="http://www.w3.org/2000/svg" height="500px" viewBox="0 0 300 300">
+        
+    <title>Cat</title>
+    <desc>Stick Figure of a Cat</desc>
+    
+    <!--绘制图形-->
+    <line x1="40" y1="20" x2="200" y2="100" style="stroke:#99f;
+                                                 stroke-width:10;
+                                                 shape-rendering:crispEdges;
+                                                 stroke-opacity:0.7;
+                                                 stroke-dasharray:5,4;
+                                                 stroke-linecap:butt;"></line>
+    
+    
+    <rect x="10" y="10" width="50" height="50" rx="25" ry="10" style="fill:none;
+                                                                    stroke:black;
+                                                                    stroke-width:5;
+                                                                    stroke-opacity:.7;
+                                                                    stroke-dasharray:5,2"></rect>
+
+    
+    <circle cx="50" cy="100" r="20" style="stroke:black; fill:none;"></circle>
+
+    <ellipse cx="100" cy="100" rx="20" ry="40" style="stroke:black; fill:none;"></ellipse>
+
+    <polygon points="15,200 55,200 45,180 5,180"></polygon>
+    <polygon points="48,216 16,296 96,248 0,248 80,296" style="fill:red; stroke:black;fill-rule:nonzero;"></polygon>
+    <polygon points="148,216 116,296 196,248 100,248 180,296" style="fill:red; stroke:black;fill-rule:evenodd;"></polygon>
+
+    <polyline points="55 20, 70 20, 75 10, 85 30, 95 10, 105 30, 115 10,125 30,130 20,145 20" 
+                style="stroke:black;
+                    fill:none;
+                    stroke-width:5;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;"></polyline>
+
+    
+</svg>
