@@ -8,9 +8,21 @@
 
 #### git add index.html
 
+> 暂存一个文件
+
+#### git ls-files --stage
+
+> 查看暂存文件的SHA1值
+
+#### git hash-object start.html
+
+> 计算和输出start.html的SHA1值
+
 #### git status
 
 #### git commit -m 'add index.html'
+
+> git commit -all 暂存所有变化并提交
 
 #### cat index.html
 
@@ -20,6 +32,9 @@
 
 #### git log
 
+`git log --pretty=short --abbrev-commit master~5..master~2`  
+显示master~5 到 master~5之间的提交
+
 #### git show 识别码
 
 > 查看commit的详情
@@ -28,13 +43,21 @@
 
 > 显示当前分支简洁的commit信息
 
+#### git rev-parse master~3
+
+> 将简写、相对名转化为散列ID
+
 #### git diff 识别码 识别码
 
 > 比较版本的差异
 
 #### git rm index.html
 
-> 删除
+> 删除一个已经暂存的文件，如果文件未暂存则会报错
+
+`git rm index.html --cached` 将index.html修改为未暂存状态
+
+`git rm index.html -f` 强制删除一个已经暂存的文件，如果文件未暂存则不会进行删除操作
 
 #### git mv index.html start.html
 
@@ -42,7 +65,7 @@
 
 #### git clone getStart cloneGetStart
 
-> 克隆版本库副本
+> 克隆版本库副本 
 
 #### git config -l
 
@@ -55,3 +78,7 @@
 #### git config --global alias.show-graph 'log --graph --abbrev-commit --pertty=oneline'
 
 > 配置别名
+
+#### gitk
+
+> 画出版本库的DAG（有向无环图）
