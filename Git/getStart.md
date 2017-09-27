@@ -107,3 +107,20 @@
 
 > 删除分支
 
+#### git diff
+
+> 工作目录与暂存区的差别
+
+#### git diff commitCode
+
+> 工作目录与指定提交版本的差别
+
+#### git diff --cached commitCode
+
+> 暂存区与指定提交版本的差别
+
+#### git diff commitCode1 commitCode2
+
+> 任意两个提交版本的差别
+
+`git diff` 的参数 `--M`查找重命名文件 `-w`忽略空白符 `--stat`显示差异的统计数据 `--color`输出颜色
