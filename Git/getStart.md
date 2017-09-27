@@ -82,3 +82,28 @@
 #### gitk
 
 > 画出版本库的DAG（有向无环图）
+
+#### git branch branch-name [start-commit]
+
+> 从`start-commit`提交创建分支`barnch-name`
+
+#### git branch
+
+> 显示所有分支
+
+#### git show-branch [branchs]
+
+> 展示分支详情
+
+#### git checkout branch
+
+> 切换分支
+
+#### git checkout -b branch
+
+> 创建并切换到分支
+
+#### git branch -d branck
+
+> 删除分支
+
