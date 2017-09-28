@@ -35,6 +35,12 @@
 `git log --pretty=short --abbrev-commit master~5..master~2`  
 显示master~5 到 master~5之间的提交
 
+`git log --graph --pretty=oneline --abbrev-commit`
+显示提交图查看工具来查看提交日志
+
+`git log --merge --left-right -p`
+显示冲突文件的所有历史提交，也可以指定特定冲突文件查看
+
 #### git show 识别码
 
 > 查看commit的详情
@@ -124,3 +130,11 @@
 > 任意两个提交版本的差别
 
 `git diff` 的参数 `--M`查找重命名文件 `-w`忽略空白符 `--stat`显示差异的统计数据 `--color`输出颜色
+
+#### git reset --hard HEAD
+
+> 把工作目录与索引都还原到`git merge`之前
+
+#### git reset --herd ORIG_HEAD
+
+> 
