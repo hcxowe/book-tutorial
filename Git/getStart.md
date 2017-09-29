@@ -131,10 +131,48 @@
 
 `git diff` 的参数 `--M`查找重命名文件 `-w`忽略空白符 `--stat`显示差异的统计数据 `--color`输出颜色
 
-#### git reset --hard HEAD
+#### git reset --hard 提交版本号
 
-> 把工作目录与索引都还原到`git merge`之前
+> 将HEAD指向给定提交版本，暂存区与工作目录跟着改变
 
-#### git reset --herd ORIG_HEAD
+#### git reset --soft 提交版本号
 
-> 
+> 将HEAD指向给定提交版本，暂存区与工作目录不变
+
+#### git reset --mixed 提交版本号
+
+> 将HEAD指向给定提交版本，暂存区改变，工作目录不变
+
+#### git cherry-pick
+
+> 通常用于将版本库中一个分支的特定提交引入一个不同的分支中
+
+#### git revert
+
+> git cherry-pick 的逆过程，引入一个提交来解决指定提交对版本的影响
+
+#### git commit --amend
+
+> 一般用于小修改又不想增加新的提交，可以使用这个命令了，将本次提交合入上一次提交
+
+#### git 编辑器操作 
+
+> i 进入编辑模式  esc 退出编辑模式  :wq 退出并保存
+
+#### git rebase 分支
+
+> 向前移植，将当前分支的基移动到最新的提交，用于特性分支同步主分支的提交
+
+#### git rebase --continue
+
+> 移植大多会出现冲突，解决一个冲突之后执行该命令继续下一个冲突的解决
+
+#### git rebase --skip
+
+> 跳过当前冲突
+
+#### git rebase --abort
+
+> 中止移植，版本库恢复到 git rebase 命令之前
+
+
