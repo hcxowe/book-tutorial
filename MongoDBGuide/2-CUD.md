@@ -85,7 +85,18 @@
 > db.ary.update({'commets.author: 'hcx'}, {$set: {'commets.$.votes': 1}})
 ```
 
+#### 返回被更新的文档
 
+findAndModify
+
+```
+ps = db.runComand({
+    findAndModify: 'processes',
+    query: {status:'READY},
+    sort: {priority: -1},
+    remove: true
+}).value;
+```
 
 
 
