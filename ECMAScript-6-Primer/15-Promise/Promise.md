@@ -83,7 +83,7 @@ p的状态有p1,p2,p3共同决定
 
 将多个Promise实例包装成一个新的Promise实例，
 ```js
-var p = Promise.all([p1, p2, p3]);
+var p = Promise.race([p1, p2, p3]);
 ```
 
 只要p1,p2,p3中有一个实例率先改变状态，p的状态就跟着改变，那个率先改变的Promise实例的返回值，就是传递给p的回调函数
