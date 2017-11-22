@@ -53,15 +53,15 @@ ES6中块级作用域外部无法调用块级作用域内部定义的函数
 
 ## const
 
-const声明变量是必须初始化， 作用域同let命令相同
+const声明变量时必须初始化，作用域同let命令相同
 
 ## ES6声明变量的方法
-- var 
-- let
-- const 
-- function
-- import
-- class
+- var  `var a;`
+- let   `let a;`
+- const `const a = 1;`
+- function  `function foo(){}`
+- import    `import data from 'xx.js'`
+- class     `class A {}`
 
 ## 全局对象的属性
 
