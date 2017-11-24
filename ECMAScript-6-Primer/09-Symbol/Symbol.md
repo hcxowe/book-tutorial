@@ -41,7 +41,7 @@ Symbol作为属性名，不会出现在 `for...in` `for...of` `Object.keys` `Obj
 ## Symbol.for & Symbol.keyFor
 
 Symbol.for 方法会先在全局搜索指定参数为名称的Symbol值，如果有就返回这个Symbol值，如果没有则新建一个Symbol值    
-Symbol.keyFor 方法返回一个已经登记的Symbol值，如果为找到返回undefined   
+Symbol.keyFor 方法返回一个已经登记的Symbol值，如果未找到返回undefined   
 iframe窗口生成的Symbol值可以在主页面得到
 
 ## 内置的Symbol值
