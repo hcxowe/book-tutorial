@@ -42,3 +42,13 @@
     - form
     - autocomplete
     - autofocus
+
+
+# CSS3
+
+## 最佳实践
+- 最大限度的减少HTTP请求
+- 使用外部样式
+- 统一浏览器样式
+- 使用最弱的特定性以便重写
+- 不要使用内联样式或!important修饰符
