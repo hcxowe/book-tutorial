@@ -1,5 +1,18 @@
 # 异步与性能
 
+## Promise
+
+- 给resolve或reject传递多个参数的话，第一个参数之后的所有参数都会被默默忽略
+- 每次你对Promise调用then，它都会创建并返回一个新的Promise， 我们可以把他连接起来实现链式
+- 你使用的文字不知会影响你对这些代码的看法，也会影响团队其他开发者对代码的认识
+- Promise构造器的第一个参数回调会展开thenable或真正的Promise对象
+- reject不会想resolve一样进行展开，reject会原封不动的把值设置为拒绝理由
+- `try...catch`无法跨异步操作
+- Promise链的一个最佳实践，就是最后总以一个catch结束
+
+## Generator
+
+
 
 ## 性能
 
