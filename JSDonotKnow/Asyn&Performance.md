@@ -9,10 +9,11 @@
 - reject不会想resolve一样进行展开，reject会原封不动的把值设置为拒绝理由
 - `try...catch`无法跨异步操作
 - Promise链的一个最佳实践，就是最后总以一个catch结束
+- 可信任可组合
 
 ## Generator
 
-
+- 看似同步的异步代码
 
 ## 性能
 
