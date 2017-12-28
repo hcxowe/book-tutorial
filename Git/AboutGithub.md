@@ -1,4 +1,4 @@
-### 如何上次本地库到github？
+### 如何上传本地库到github？
 
 1. 建立本地的git仓库
 > $ git init
