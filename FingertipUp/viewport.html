@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            min-width: 320px;
+        }
+        .wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #e5eae9;
+        }
+        .bg {
+            background: url(./niao.png) no-repeat 50% 0;
+            position: absolute;
+            top: 0;left: 50%;
+            width: 500px;
+            height: 250px;
+            margin: 0 0 0 -250px;
+            background-size: 100% auto;
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            width: 320px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+        .logo {
+            margin: 0 auto;
+            width: 100px;
+            height: 50px;
+        }
+        .logo a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-indent: -9999px;
+            background: url(./niao.png) no-repeat 50% 50%;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="bg"></div>
+        <div class="container">
+            <h1 class="logo">
+                <a href="###">logo</a>
+            </h1>
+        </div>
+    </div>
+</body>
+</html>
