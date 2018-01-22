@@ -61,19 +61,17 @@ total;//"001234"
 ### 迭代方法优于循环
 
 - 使用迭代方法 forEach map 替换 for循环
-- 在需要提前终止循环的情况下，优先使用for循环，some和every方法也或提前终止循环
-- forEach的函数参数如果返回false也会终止循环
+- 在需要提前终止循环的情况下，优先使用for循环，some和every方法也可提前终止循环
+- forEach的函数参数如果返回false不会终止循环
 
 ```js
 var ary = [1,2,3,4,5];
 ary.forEach(function(value) {
-    if (value < 2) {
-        console.log(value);
-    } 
-    
+    console.log(value);
+
     return false;
 });
-// 1
+// 1 2 3 4 5
 ```
 
 ### 在类数组对象上复用通用的数组方法

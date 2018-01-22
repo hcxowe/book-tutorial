@@ -58,4 +58,3 @@
 ### 避免使用非标准的栈检查属性
 
 - 避免使用arguments.callee和arguments.caller
-
