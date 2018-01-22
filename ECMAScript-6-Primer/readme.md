@@ -6,7 +6,6 @@
 - ES6规范于2015年6月完成
 - 以后版本将遵循 `ES[YYYY]` 格式
 
-
 # 工具集
 
 - 要想让ES6在工作，你需要一个 **JavaScript-to-JavaScript** 的转换机
@@ -124,8 +123,8 @@
 - `Symbol.for(key)`
   - 如果描述为 `key` 的符号变量存在, 返回这个符号变量
   - 否则使用`key`创建一个符号变量
-  - `Symbol.keyFor(symbol)` 返货`symbol`的`key`
-  - Symbol是全局的，包括一下方式定义的Symbol
+  - `Symbol.keyFor(symbol)` 返回`symbol`的`key`
+  - Symbol是全局的，包括以下方式定义的Symbol
     - `window`
     - `eval` 
     - `<iframe>`, `Symbol.for('foo') === iframe.contentWindow.Symbol.for('foo')`
