@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ao {
+            display: inline-block;
+            width: 0;
+        }
+        .ao::before {
+            content: 'love 你 love';
+            outline: 1px solid black;
+            color: #fff;
+        }
+        .tu {
+            display: inline-block;
+            width: 0;
+            margin-left: 80px;
+            direction: rtl;
+        }
+        .tu::after {
+            content: '你 love 你';
+            outline: 1px solid black;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:200px; text-align: center;background: #ccc;">
+        <label style="display:inline-block;text-align: left;">文字少居中对齐,文字多左对齐</label>
+    </div>
+
+    <div style="width:200px;">
+        <span class="ao"></span>
+        <span class="tu"></span>
+    </div>
+
+    <div style="width:500px;height:200px;padding:25px;background: #ccc;">
+        <div style="height:100%;background: black;color:#fff;">
+            非绝对定位元素的宽高百分比计算则是相对于 content box 计算的
+        </div>
+    </div>
+    <div style="margin:50px;width:500px;height:200px;padding:25px;background: #ccc;position: relative;">
+        <div style="position:absolute;height:100%;width:100%;background: black;color:#fff;">
+            绝对定位元素的宽高百分比计算是相对于 padding box 计算的  
+        </div>
+    </div>
+
+    // 幽灵空白节点
+    <div style="background: #ccc;"><span style="display: inline-block;"></span></div>
+</body>
+</html> 
