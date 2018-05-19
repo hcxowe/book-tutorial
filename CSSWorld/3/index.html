@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            margin-top: 50px;
+        }
+        .container::before {
+            content: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526719173955&di=936a6d4a084b8c065c4cb169e19b17c9&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F010d26559298066ac7253264594db0.png);
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+        .image:not([src]) {
+            /* 隐藏Chrome alt文字以及银色边框 */
+            visibility: hidden;
+        }
+        .image::before {
+            /* 淡蓝色占位背景 */
+            content: "";
+            position: absolute; 
+            left: 0;
+            width: 100%; height: 100%;
+            background-color: #f0f3f9;
+            visibility: visible;
+        }
+        .image {
+            display: inline-block;
+            width: 256px;
+            height: 193px;
+            position: relative;
+            color: transparent;
+            overflow: hidden;
+        }
+        .image::after {
+            content: attr(alt);
+            position: absolute;
+            bottom: 0;left: 0;
+            line-height: 30px;
+            color:#fff;
+            font-size: 14px;
+            width: 100%;
+            background-color:rgba(0, 0, 0, 0.5);
+            transform: translateY(100%);
+            transition: transform .2s;
+            visibility: visible;
+            text-align: center;
+        }
+        .image:hover::after {
+            transform: translateY(0)
+        }
+    </style>
+</head>
+<body>
+    <p>替换元素的尺寸规则</p>
+    <img style="width: 300px; height:auto;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526719173955&di=f7db0de75acdffdbf2bd764be06d3ab2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011d2f55446a350000019ae979f607.jpg">
+    
+    <p>input[button] 与 button 的差别</p>
+    <div style="width: 100px;background: #ccc;padding:30px;">
+        <input type="button" value="input[type=button]的 white-space 的值为 pre, 表现为不换行"></input>
+        <button>button 的 white-space 值为 normal 会自动换行</button>
+    </div>
+
+    <p>非替换元素的伪元素设置一张图片, 伪元素的 width 与 height 无法限制content:url(img); 的大小</p>
+    <div class="container"></div>
+
+    <p>img 设置 alt 同时不设置 src, 表现为普通内联元素</p>
+    <img style="display: block; outline: 1px solid;" alt="img设置 alt 同时不设置 src, 表现为普通内联元素">
+
+    <p>替换元素不支持伪元素, img设置 alt 同时不设置 src, 表现为普通内联元素, 可以js 指定 img 的 src 可变更 img 为替换元素</p>
+    <img class="image" alt="没有 src 值的图片">
+</body>
+</html>
