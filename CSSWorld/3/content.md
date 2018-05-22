@@ -1,6 +1,6 @@
 ## 盒尺寸四大家族
 
-### content
+### content
 
 > 根据'外在盒子'是内联还是块级, 把元素分为内联元素和块级元素
 
@@ -73,8 +73,10 @@
 
 - counter-reset
 > counter-reset: time 1;
+
 - counter-increment
 > counter-increment: time 2;
+
 - counter() / counters()
 > counter(time, lower-roman)
 
