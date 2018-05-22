@@ -35,3 +35,47 @@
     7. 缺省 src 的`<img>`IE 浏览器下是28\*30, chrome 是 0\*0,firefox 是0\*22
     8. 缺省 src 的`<img>`在 firefox 下 display 为 inline
     9. 无法改变替换元素内容的固有尺寸
+
+### content内容生成技术
+
+#### IE8仅支持单冒号的伪元素
+
+#### 清楚浮动
+```css
+.clear:after {
+    content: '';
+    display: block; /* 或者 table */
+    clear: both;
+}
+```
+
+#### `\A` 换行: 将光标垂直移动到下一行
+
+#### `\D` 回车: 将光标移动到当前行的开头
+
+#### content 不支持 CSS3 渐变背景图
+
+#### content 开启闭合符号生成
+
+```css
+.question {
+    quotes: '问题: "' '?"'
+}
+.question::before {
+    content: open-quote;
+}
+.question::after {
+    content: close-quote;
+}
+```
+
+#### content 计数器
+
+- counter-reset
+> counter-reset: time 1;
+- counter-increment
+> counter-increment: time 2;
+- counter() / counters()
+> counter(time, lower-roman)
+
+> counters(time, '-')
