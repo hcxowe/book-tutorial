@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px" style="border:1px dotted black;" viewBox="0 0 400 400">
+    <title>path</title>
+    <desc>pathpathpath</desc>>
+
+    <g style="stroke:black;fill:none;">
+        <path d="M 10 10 L 20 20" />
+        <path d="M 20, 20 L 30, 30" />
+        <path d="M 40 60 L 10 60 L 40 42.68
+                 M 60 60 L 90 60 L 60 42.68" />
+
+        <!-- 通过 Z 闭合路径 -->
+        <path d="M 50 10 L 100 10 L 100 30 L 50 30 Z" />
+
+        <!-- 小写 m l 表示相对于当前位置 -->
+        <path d="M 150 10 l 50 0 l 0 30 l -50 0 Z" />
+
+        <!-- 大写 H V 垂直/水平移动绝对位置-->
+        <path d="M 250 10 H 300 V 30 H 250 Z" />
+        <!-- 小写 h v 相对于当前位置垂直/水平移动 -->
+        <path d="M 320 10 h 50 v 30 h -50 z" />
+    </g>
+</svg>
