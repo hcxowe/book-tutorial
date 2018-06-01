@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px" style="border:1px dotted black;" viewBox="0 0 400 400">
+<svg xmlns="http://www.w3.org/2000/svg" width="400px" height="800px" style="border:1px dotted black;" viewBox="0 0 400 800">
     <title>path</title>
     <desc>pathpathpath</desc>>
 
@@ -18,5 +18,28 @@
         <path d="M 250 10 H 300 V 30 H 250 Z" />
         <!-- 小写 h v 相对于当前位置垂直/水平移动 -->
         <path d="M 320 10 h 50 v 30 h -50 z" />
+
+        <!-- 弧线 -->
+        <path d="M 125 75 A 100 50 0 0 0 225 125">
     </g>
+
+    <!-- 八卦 -->
+    <ellipse cx="154" cy="154" rx="150" ry="120" style="fill:#999;" />
+    <ellipse cx="152" cy="152" rx="150" ry="120" style="fill:#cef;" />
+
+    <path d="M 302 152 A 150 120 0 1 0 2 152
+            A 75 60 0 1 0 152 152" style="fill:#fcc" />
+
+    <path d="M 152 152 A 75 60 0 1 1 302 152" style="fill:#cef;" />
+
+    <circle cx="70" cy="152" r="10" style="fill:#cef;" />
+
+    <circle cx="230" cy="152" r="10" style="fill:#fcc;" />
+
+    <!-- 二次贝塞尔曲线 -->
+    <path d="M 10 400 Q 100 300, 200 400" style="stroke: black;fill:none;" />
+
+    <path d="M 10 400 Q 100 500, 200 400 T 300 500" style="fill:none;stroke:black;" />
+
+    <path d="M 30 500 C 50 450, 70 420, 100 500, 110, 530, 45, 550, 65, 500" style="stroke:black;fill:none;" />
 </svg>
