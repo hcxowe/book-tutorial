@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active-btn {
+            padding: 10px;
+            color: white;
+            display: inline-block; 
+            background-color: #cd0000;
+        }
+        .active-btn:active {
+            background-color: #ae0000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        :active 针对元素按下时的状态, IE8+支持非焦点元素( div, span) <br>
+        火狐的 :active 在 mousedown 之后触发
+    </div>
+    正常情况：
+    <a href="javascript:" class="active-btn">按下</a>
+    包含JS：
+    <a href="javascript:" id="button" class="active-btn">按下</a>
+
+    <script>
+        /* :active 针对元素按下时的状态, IE8+支持非焦点元素( div, span) */
+        /* 火狐的 :active 在 mousedown 之后触发 */
+        var button = document.getElementById("button");
+        if (button.addEventListener) {
+            button.addEventListener("mousedown", function(event) {
+                // 此处省略N行
+                event.preventDefault();    
+            });
+        }
+    </script>
+</body>
+</html>
