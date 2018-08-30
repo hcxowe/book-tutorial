@@ -1,28 +1,19 @@
-/**
- * Nodejs hello world 
- */
+var http = require('http')
 
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
+function process_request(req, res) {
+    var body = 'hello',
+        length = body.length
 
-function getFileData(callback) {
-    fs.readFile('./config.conf', function(data) {
-        callback(data);
-    });
+    res.writeHead(200, {
+        'Content-Length': length,
+        'Content-Type': 'text/plain'
+    })
+
+    res.end(body)
 }
 
-http.createServer(function(req, res) {
-    res.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
+var s = http.createServer(process_request)
 
-    var readPath = __dirname + '/' + url.parse('config.conf').pathname;
-    var data = fs.readFileSync(readPath);
+s.listen(8080)
 
-    var html = '<html><head><title>测试</title></head><body><h1>Nodejs</h1><p>' + data + '</p></body></html>'
-    res.end(html);
-
-}).listen(1337, '127.0.0.1');
-
-console.log('Server running at http://localhost:1337/');
+// curl -i http://localhost:8080   命令获取响应
