@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas')
+            context = canvas.getContext('2d')
+
+        var speed = 5,
+            p1 = {x: 20, y: 20},
+            angle = 35,
+            radians = 0,
+            xunits = 0,
+            yunits = 0,
+            ball = {x: p1.x, y: p1.y}
+
+        updateBall()
+
+        function loop() {
+            drawScreen()
+            setTimeout(loop, 20)
+        }
+
+        loop()
+
+        function updateBall() {
+            radians = angle * Math.PI/ 180;
+            xunits = Math.cos(radians) * speed;
+            yunits = Math.sin(radians) * speed;
+        }
+
+        function drawScreen() {
+            context.fillStyle = '#eee'
+            context.fillRect(0, 0, canvas.width, canvas.height)
+
+            context.strokeStyle = '#000'
+            context.strokeRect(1, 1, canvas.width - 2, canvas.height - 2)
+
+            ball.x += xunits
+            ball.y += yunits
+
+            context.fillStyle = '#000'
+            context.beginPath()
+            context.arc(ball.x, ball.y, 15, 0, Math.PI*2, true)
+            context.closePath()
+            context.fill()
+
+            if (ball.x+15 > canvas.width || ball.x-15 < 0) {
+                angle = 180 - angle
+                updateBall()
+            }
+            else if (ball.y+15 > canvas.height || ball.y-15 < 0) {
+                angle = 360 - angle
+                updateBall()
+            }
+        }
+    </script>
+</body>
+</html>

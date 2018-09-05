@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d')
+
+        var numBalls = 200;
+        var maxSize = 15;
+        var minSize = 5;
+        var maxSpeed = maxSize + 5;
+        var balls = new Array();
+        var tempBall;
+        var tempX;
+        var tempY;
+        var tempSpeed;
+        var tempAngle;
+        var tempRadius;
+        var tempRadians;
+        var tempvelocityx;
+        var tempvelocityy;
+
+        for (var i = 0; i < numBalls; i++) {
+            tempRadius = 5;
+            var placeOK = false;
+            while (!placeOK) {
+                tempX = tempRadius * 3 + (Math.floor(Math.random() * canvas.width) - tempRadius * 3);
+                tempY = tempRadius * 3 + (Math.floor(Math.random() * canvas.height) - tempRadius * 3);
+                tempSpeed = 4;
+                tempAngle = Math.floor(Math.random() * 360);
+                tempRadians = tempAngle * Math.PI / 180;
+                tempvelocityx = Math.cos(tempRadians) * tempSpeed;
+                tempvelocityy = Math.sin(tempRadians) * tempSpeed;
+                tempBall = {
+                    x: tempX,
+                    y: tempY,
+                    nextX: tempX,
+                    nextY: tempY,
+                    radius: tempRadius,
+                    speed: tempSpeed,
+                    angle: tempAngle,
+                    velocityx: tempvelocityx,
+                    velocityy: tempvelocityy,
+                    mass: tempRadius
+                };
+                placeOK = canStartHere(tempBall);
+            }
+
+            balls.push(tempBall);
+        }
+
+        function canStartHere(ball) {
+            var retval = true;
+            for (var i = 0; i < balls.length; i++) {
+                if (hitTestCircle(ball, balls[i])) {
+                    retval = false;
+                }　　
+            }　　
+            return retval;　
+        }
+
+        function gameLoop() {　　
+            window.setTimeout(gameLoop, 20);　　
+            drawScreen()
+        }
+
+        gameLoop();
+
+        function drawScreen() {
+            context.fillStyle = '#eee'
+            context.fillRect(0, 0, canvas.width, canvas.height)
+
+            context.strokeStyle = '#000'
+            context.strokeRect(1, 1, canvas.width - 2, canvas.height - 2)
+
+            update();　　　
+            testWalls();　　　
+            collide();　　　
+            render();
+        }
+
+        function update() {
+            for (var i = 0; i < balls.length; i++) {　　　　
+                ball = balls[i];　　　　
+                ball.nextx = (ball.x += ball.velocityx);　　　　
+                ball.nexty = (ball.y += ball.velocityy);　　
+            }
+        }
+
+        function testWalls() {
+            var ball;　　
+            var testBall;
+
+            　　
+            for (var i = 0; i < balls.length; i++) {　　　　
+                ball = balls[i];
+
+                　　　　
+                if (ball.nextx + ball.radius > canvas.width) {　　　　　
+                    ball.velocityx = -1 * ball.velocityx;　　　　　
+                    ball.nextx = canvas.width - ball.radius; 　　　　
+                } else if (ball.nextx - ball.radius < 0) {　　　　　
+                    ball.velocityx = -1 * ball.velocityx;　　　　　
+                    ball.nextx = ball.radius;
+                } else if (ball.nexty + ball.radius > canvas.height) {　　　　　
+                    ball.velocityy = -1 * ball.velocityy;　　　　　
+                    ball.nexty = canvas.height - ball.radius;　　
+                } else if (ball.nexty - ball.radius < 0) {　　　　　
+                    ball.velocityy = ball.velocityy * -1;　　　　　
+                    ball.nexty = ball.radius;　　　　
+                }
+            }
+        }
+
+        function render() {
+            var ball;　　
+            context.fillStyle = "#000000";　　
+            for (var i = 0; i < balls.length; i++) {　　　　
+                ball = balls[i];　　　　
+                ball.x = ball.nextx;　　　　
+                ball.y = ball.nexty;
+
+                　　　　
+                context.beginPath();　　　　
+                context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, true);　　　　
+                context.closePath();　　　　
+                context.fill();　　
+            }
+        }
+
+        function collide() {
+            var ball;　　　
+            var testBall;　　　
+            for (var i = 0; i < balls.length; i++) {　　　　　
+                ball = balls[i];　　　　　
+                for (var j = i + 1; j < balls.length; j++) {　　　　　　　　
+                    testBall = balls[j];　　　　　　　
+                    if (hitTestCircle(ball, testBall)) {　　　　　　　　　
+                        collideBalls(ball, testBall);　　　　　　　　
+                    }
+                }
+            }
+        }
+
+        function hitTestCircle(ball1, ball2) {　　　
+            var retval = false;　　　
+            var dx = ball1.nextx - ball2.nextx;　　　
+            var dy = ball1.nexty - ball2.nexty;　　　
+            var distance = (dx * dx + dy * dy);　　　
+            if (distance <= (ball1.radius + ball2.radius) * (ball1.radius + ball2.radius))　　　 {　　　　　　
+                retval = true;　　　
+            }　　　
+            return retval;　　
+        }
+
+        function collideBalls(ball1, ball2) {
+            var dx = ball1.nextx - ball2.nexty,
+                dy = ball1.nexty - ball2.nexty,
+                collisionAngle = Math.atan2(dy, dx),
+                speed1 = Math.sqrt(ball1.velocityx * ball1.velocityx + ball1.velocityy * ball1.velocityx),
+                speed2 = Math.sqrt(ball2.velocityx * ball2.velocityx + ball2.velocityy * ball2.velocityx),
+                direction1 = Math.atan2(ball1.velocityy, ball1.velocityx),
+                direction2 = Math.atan2(ball2.velocityy, ball2.velocityx),
+                velocityx_1 = speed1 * Math.cos(direction1 - collisionAngle),
+                velocityy_1 = speed1 * Math.sin(direction1 - collisionAngle),
+                velocityx_2 = speed2 * Math.cos(direction2 - collisionAngle),
+                velocityy_2 = speed2 * Math.sin(direction2 - collisionAngle),
+                final_velocityx_1 = ((ball1.mass - ball2.mass) * velocityx_1 + (ball2.mass + ball2.mass) * velocityx_2) /
+                (ball1.mass + ball2.mass),
+                final_velocityx_2 = ((ball1.mass + ball1.mass) * velocityx_1 + (ball2.mass - ball1.mass) * velocityx_2) /
+                (ball1.mass + ball2.mass),
+                final_velocityy_1 = velocityy_1,
+                final_velocityy_2 = velocityy_2
+
+            ball1.velocityx = Math.cos(collisionAngle) * final_velocityx_1 + Math.cos(collisionAngle + Math.PI / 2) *
+                final_velocityy_1
+            ball1.velocityy = Math.sin(collisionAngle) * final_velocityx_1 + Math.sin(collisionAngle + Math.PI / 2) *
+                final_velocityy_1
+            ball2.velocityx = Math.cos(collisionAngle) * final_velocityx_2 + Math.cos(collisionAngle + Math.PI / 2) *
+                final_velocityy_2
+            ball2.velocityy = Math.sin(collisionAngle) * final_velocityx_2 + Math.sin(collisionAngle + Math.PI / 2) *
+                final_velocityy_2
+
+            ball1.nextx = (ball1.nextx += ball1.velocityx)
+            ball1.nexty = (ball1.nexty += ball1.velocityy)
+            ball2.nextx = (ball2.nextx += ball2.velocityx)
+            ball2.nexty = (ball2.nexty += ball2.velocityy)
+        }
+    </script>
+</body>
+
+</html>
