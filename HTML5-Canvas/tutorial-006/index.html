@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas')
+        var context = canvas.getContext('2d')
+        var shipState = 0
+        var rotation = 0
+        var x = 50
+        var y = 50
+        var width = 20
+        var height = 20
+        var alpha = 0
+
+        function drawScreen() {
+            context.globalAlpha = 1
+
+            shipState++
+            if (shipState >1) {
+                shipState=0
+            }
+
+        　　// 绘制背景和文字
+        　　context.fillStyle = '#000000'
+        　　context.fillRect(0, 0, 200, 200)
+        　　context.fillStyle = '#ffffff'
+        　　context.font = '20px sans-serif'
+        　　context.textBaseline = 'top'
+        　　context.fillText　("Player Ship - Thrust", 0, 180)
+
+            context.globalAlpha = alpha
+
+            var angleInRadius = rotation * Math.PI / 180
+            context.save()
+
+            context.setTransform(1, 0, 0, 1, 0, 0)
+            context.translate(x + .5 * width, y + .5 * height)
+            context.translate(x, y)
+            context.rotate(angleInRadius)
+
+        　　//绘制飞船
+        　　context.strokeStyle = '#ffffff'
+        　　context.beginPath()
+        　　context.moveTo(0, -10)
+        　　context.lineTo(9,9)
+        　　context.lineTo(0,-1)
+        　　context.moveTo(-1,-1)
+        　　context.lineTo(-10,9)
+        　　context.lineTo(-1,-10)
+
+        　　if (shipState==1){
+                //绘制推进火焰
+                context.moveTo(-2,3)
+                context.lineTo(1,3)
+                context.moveTo(-1,4)
+                context.lineTo(-1,8)
+                context.moveTo(0,4)
+                context.lineTo(0,8)
+        　　}
+
+            context.stroke()
+            context.closePath()
+
+            context.restore()
+
+            rotation++
+            alpha += .1
+            if (alpha > 1) {
+                alpha = 0
+            }
+        }
+
+　       var FRAME_RATE = 40
+　       var intervalTime=1000/FRAME_RATE
+
+　       gameLoop()
+
+        function gameLoop() {
+            drawScreen()
+            window.setTimeout(gameLoop, intervalTime)
+        }
+    </script>
+</body>
+</html>
