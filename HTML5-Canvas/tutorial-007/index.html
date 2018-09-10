@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="1000" height="1000" id="canvas" style="width: 100%;height: 100%;">your brower not support canvas!</canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        ctx.fillStyle='#1e5bb9'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.fillStyle = "#fff"
+
+        clound(0, 800, 1)
+        clound(0, 750, .5)
+        clound(0, 700, .2)
+
+        for (var i=0; i<50; i++) {
+            drawNStar(ctx, {
+                "num": 5,//多少角星
+                "R": 3,//中心到顶点距离
+                "r": 1,//中心到凹点距离
+                "x": Math.random()*1000,//左上角X坐标
+                "y": Math.random()*300,//左上角Y坐标
+                "rot": 45// 旋转角度
+            }, {
+                "fs": "#fff",//填充色
+                "lj": "round",//接头圆滑
+                "lw": 2,//线宽
+                "b": false,//有边线
+                "f": true,//有填充
+                "alpha": .4
+            });
+        }
+
+        var x = 100,
+            y = 200,
+            a = 80,
+            b = 1,
+            radius = -60
+
+        for(var i=0; i<10; i++) {
+            x = i * 100 + Math.random() * 100
+            y = 200 + Math.random() * 100 - 50
+            a = Math.random() * 40 + 60
+            radius = -Math.random() * 30 - 60
+            BezierEllipse(ctx, x, y, a, b, radius)
+        }
+
+        function BezierEllipse(ctx, x, y, a, b, radius){
+            ctx.save()
+            ctx.setTransform(1,0,0,1,0,0);
+            ctx.translate(x, y)
+            ctx.rotate(radius * Math.PI / 180)
+
+            var k = .5522848,
+            ox = a * k, // 水平控制点偏移量
+            oy = b * k; // 垂直控制点偏移量
+
+            ctx.beginPath();
+            //从椭圆的左端点开始顺时针绘制四条三次贝塞尔曲线
+            x = 0
+            y = 0
+            ctx.moveTo(x - a, y);
+            ctx.bezierCurveTo(x - a, y - oy, x - ox, y - b, x, y - b);
+            ctx.bezierCurveTo(x + ox, y - b, x + a, y - oy, x + a, y);
+            ctx.bezierCurveTo(x + a, y + oy, x + ox, y + b, x, y + b);
+            ctx.bezierCurveTo(x - ox, y + b, x - a, y + oy, x - a, y);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        /**
+         * 绘制n角星
+         * @param ctx
+         * @param num 星星数量
+         * @param R 中心到顶点距离
+         * @param r 中心到凹点距离
+         * @param x 左上角X坐标Y
+         * @param y 左上角坐标
+         * @param rot 旋转角度
+         * @param configJson 配置信息
+         */
+        function _drawNStar(ctx, num, R, r, x, y, rot, configJson) {
+            b2c(ctx, function () {
+                var border = configJson["lw"];
+                for (var i = 0; i < num; i++) {
+                    var perDeg = 360 / num;
+                    var degA = perDeg / 2 / 2;
+                    var degB = 360 / (num - 1) / 2 - degA / 2 + degA;
+                    ctx.lineTo(Math.cos((degA + perDeg * i - rot) / 180 * Math.PI) * R + x + border + R * Math.cos(degA / 180 * Math.PI),
+                        -Math.sin((degA + perDeg * i - rot) / 180 * Math.PI) * R + y + border + R);
+                    ctx.lineTo(Math.cos((degB + perDeg * i - rot) / 180 * Math.PI) * r + x + border + R * Math.cos(degA / 180 * Math.PI),
+                        -Math.sin((degB + perDeg * i - rot) / 180 * Math.PI) * r + y + border + R);
+                }
+
+            }, configJson);
+        }
+
+        function drawNStar(ctx, infoJson, configJson) {
+            var num, R, r, x, y, rot;
+            num = infoJson["num"];
+            R = infoJson["R"];
+            r = infoJson["r"];
+            x = infoJson["x"];
+            y = infoJson["y"];
+            rot = infoJson["rot"];
+            _drawNStar(ctx, num, R, r, x, y, rot, configJson)
+        }
+
+        /**
+         * beginPath到closePath
+         * @param ctx 上下文
+         * @param callback 回调函数
+         * @param configJson 配置信息
+         */
+        function b2c(ctx, callback, configJson) {
+            ctx.beginPath();
+            if (callback && typeof(callback) === "function") {
+                callback();
+            }
+            ctx.closePath();//会封闭图形
+
+            ctx.lineWidth = configJson["lw"];
+            ctx.strokeStyle = configJson["ss"];
+            ctx.fillStyle = configJson["fs"];
+            ctx.lineJoin = configJson["lj"];
+            ctx.lineCap = configJson["lc"];
+            ctx.globalAlpha = configJson["alpha"];
+
+            if (configJson["f"]) {
+                ctx.fill();
+            }
+            if (configJson["b"]) {
+                ctx.stroke();//绘制
+            }
+        }
+
+        function clound(x, y, alpha) {
+            ctx.globalAlpha = alpha
+            ctx.beginPath()
+
+            ctx.moveTo(x, y)
+            while(x < 1000) {
+                x1 = 50 + Math.floor(Math.random() * 50)
+                y1 = 50 - Math.floor(Math.random() * 100)
+
+                dx = 50 * y1 / Math.sqrt(x1*x1 + y1*y1)
+                dy = 50 * x1 / Math.sqrt(x1*x1 + y1*y1)
+
+                ctx.quadraticCurveTo(x + Math.floor(x1/2) + dx, y-Math.floor(y1/2)-dy, x + x1, y + y1)
+
+                x += x1
+                y += y1
+
+                if (x > 1000) {
+                    x = 1000
+                }
+            }
+
+            ctx.lineTo(1000, 1000)
+            ctx.lineTo(0, 1000)
+            ctx.closePath()
+            ctx.fill()
+
+            ctx.globalAlpha = 1
+        }
+    </script>
+</body>
+</html>
